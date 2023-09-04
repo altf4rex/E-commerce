@@ -1,27 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* font-family: 'Open Sans', sans-serif;
+  font-family: 'Poppins', sans-serif; */
+
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.shadow{
+  background: white;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.max-width {
+  @apply max-w-[1260px] mx-auto;
+}
+.container{
+  padding: 0 45px;
+}
+.text-sans{
+  font-family: Open Sans;
+  font-style: normal;
+  line-height: normal;
+  
+}
+
+.text-pop{
+font-family: Poppins;
+font-style: normal;
+line-height: normal;
+}
+
+
+.select
+.MuiFormLabel-root
+{
+ 
+  color: var(--c-1-a, #151515);
+  font-family: Poppins;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.select
+.MuiInputBase-root
+ {
+  
+  width: 200px;
+}
+
+.select
+.MuiInputBase-root
+ {
+  padding-bottom: 4px;
+ 
+}
+
+.select
+.MuiInputBase-input
+ {
+  padding-bottom: 4px;
+ 
+}
+
+
+.search{
+  width: 270px;
+  height: 20px;
+}
+
+.search
+.MuiFormLabel-root  {
+  color: #575757;
+  font-family: Open Sans;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.search
+.MuiInputBase-input   {
+  padding: 12px 44px 16px 12px;
+}
+
+.basket-circle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 60%;
+  left: -18%;
+  width: 18px;
+height: 18px;
+border-radius: 12px;
+color: white;
+font-family: Poppins;
+font-size: 14px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+background:  #E5704B;
+box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
+}
+
+/* .img-banner{
+  background-image: url(/enext/public/baner-bg.svg);
+  width: 400px;
+  height: 300px;
+  position: relative;
+  z-index: 1;
+  background-repeat: no-repeat;
+  background-size: cover;
+} */
+
+.bg-blog {
+  background-image: url('/enext/public/Blog-1.jpg');
+  width: 400px;
+  height: 400px;
+  position: relative;
+  z-index: 1;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
