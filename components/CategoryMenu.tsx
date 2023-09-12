@@ -4,10 +4,10 @@ export default function CategoryMenu() {
   return (
     <div className="flex justify-between py-4 px-[45px] mx-[-45px]  bg-primaryBg">
         {categories.map((c) => (
-          
-                <Link href={`${c}`} className="text-pop text-base">{c}</Link>
+                <Link href={`/products/${c}`} className="text-pop text-base">{c}</Link>
             )
         )}
     </div>
   )
 }
+ 

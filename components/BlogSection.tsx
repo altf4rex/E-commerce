@@ -17,11 +17,19 @@ const BlogSection = () => {
                 />  
             </Link>
         </div>
-        <div className="bg-blog">
-
+        <div>
+        <Image 
+          className=""
+          src='/Blog-1.jpg'
+          alt='Blog'
+          width={469}
+          height={400}
+        />  
+        
         </div>
     </section>
   )
+  // что с маршрутом ?
 }
 
 export default BlogSection

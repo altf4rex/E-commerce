@@ -1,8 +1,29 @@
+import {PageProps} from "@/types"
+import PocketBase from 'pocketbase';
+
+const pb = new PocketBase('http://127.0.0.1:8090');
 
 
-export async function fetchProducts(category?: string) {
-    
-    const response = await fetch(`https://64f38e22edfa0459f6c6ab1c.mockapi.io/products?category=${category}`);
-    const result = await response.json();
-    return result
+
+
+export async function full() {
+    try {
+        return await pb.collection('products').getFullList({
+            sort: '-created',
+        });
+    } catch (error) {
+      console.error(`Произошла ошибка:`, error);
+    }
+}
+
+
+export async function part(params: string) {
+  
+    try {
+        return await pb.collection('products').getList(1, 3, ({
+          filter: `category="${params}"`,
+      }))
+    } catch (error) {
+      console.error(`Произошла ошибка:`, error);
+    }
 }

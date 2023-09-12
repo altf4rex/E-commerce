@@ -1,15 +1,20 @@
 import LeftMenu from "@/components/LeftMenu";
 import {LeftMenuCategory, BestSellingProducts, BestFromFarmers, BannerRecepies, categories} from "@/constants";
 import RecepiesBanner from "@/components/RecepiesBanner";
-import {fetchProducts} from "@/utils"
+import {part} from "@/utils"
 import ProductCard from "@/components/ProductCard";
-import {Product} from "@/types"
+import {Product, ProductArray} from "@/types"
 import BlogSection from "@/components/BlogSection";
+import {bestSelling, bestFarmers} from "@/constants";
+
+
+
 export default async function Home() {
 
- 
-  const bestSelling  = await fetchProducts("Fruit and vegetables");
-  const bestFromFarmers  = await fetchProducts("Meat and fish");
+  const obj = await part("Meat and fish");
+  const products = obj.items; 
+
+
   return (
     <main>
         <section className="flex my-16 ">
@@ -22,7 +27,7 @@ export default async function Home() {
          <section className="flex my-16">
           <LeftMenu {...BestSellingProducts}/>
             <div className="flex flex-wrap ">
-              {bestSelling.slice(0, 3).map((b: Product) => (
+              {products.map((b: Product) => (
                 <ProductCard {...b}/>
               ))} 
             </div>
@@ -32,7 +37,7 @@ export default async function Home() {
         <section className="flex my-16">
           <LeftMenu {...BestFromFarmers}/>
             <div className="flex flex-wrap ">
-              {bestFromFarmers.slice(0, 3).map((b: Product) => (
+              {products.map((b: Product) => (
                 <ProductCard {...b}/>
               ))} 
             </div>

@@ -26,6 +26,7 @@ export interface ProductCardProps{
 export interface Product {
     id: number;
     name: string;
+    slug: string;
     description: string;
     rating: string;
     reviewCount: number;
@@ -39,10 +40,32 @@ export interface Product {
     stock: number;
     sku: string;
     category: string;
-    subcategory?: string; 
-    buyBy: string[];
+    subcategory: string; 
+    buyBy: string;
     delivery: number;
     origins: string;
     recipe: string;
-    vitamins: any[];
+    vitamins: string;
   }
+
+  export type ProductArray = {
+    page: number,
+    perPage: number,
+    totalPages: number,
+    totalItems: number,
+    items: Product[]
+  };
+
+export type subcategoryCountProp = {
+    [key: string]: number;
+}
+
+export type PageProps = {
+    category?: string; 
+    subcategory?: string;
+    name?: string;
+    discountPrice?: number | string;
+    rating?: string | string;
+    limit?: number;
+}
+

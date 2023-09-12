@@ -68,3 +68,14 @@ export const footerLinks = [
     array:["Your account", "Returns Centre", "100 % purchase protection", "Chat with us", "Help"]
   },
 ]
+
+export const bestSelling = {
+  category: "Fruit and vegetables",
+  limit: 3
+}
+
+export const bestFarmers = {
+  category: "Meat and fish",
+  name: "Wild-Caught Salmon"
+}
+
