@@ -4,6 +4,7 @@ import {getProduct} from '@/utils'
 import {categories} from "@/constants"
 import FilterCategory from "./FilterCategory"
 import FilterRating from "./FilterRating"
+import FilterPrice from "./FilterPrice"
   
 const Filter = ({products}: {products: ProductArray}) => {
 
@@ -21,6 +22,7 @@ const Filter = ({products}: {products: ProductArray}) => {
     <div className="flex flex-col shrink-0 w-[260px]">
       <FilterCategory subcategory={subcategoryCount}/>
       <FilterRating />
+      <FilterPrice /> 
     </div>
   )
 }

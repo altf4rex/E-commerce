@@ -7,13 +7,12 @@ import PocketBase from 'pocketbase';
 const pb = new PocketBase('http://127.0.0.1:8090');
 
   export default async function Page(props){
-    console.log(props)
     const {category} = props.params;
-    const {rating, subcategory} = props.searchParams;
+    const {subcategory} = props.searchParams;
+    const {rating} = props.searchParams;
+   
+    const products: ProductArray = (await getProduct(category, subcategory, rating)) || { items: []};
 
-    const products: ProductArray = (await getProduct(category, rating)) || { items: []};
-
-    // params, searchParams
     return (
       <>
         <Navigation />
@@ -24,7 +23,6 @@ const pb = new PocketBase('http://127.0.0.1:8090');
             <ProductCard {...p} />
           ))}
           </div>
-          
         </main>
       </>
     )

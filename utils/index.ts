@@ -16,7 +16,8 @@ export async function getProduct(category?: string, subcategory?: string, rating
     }
 
     if (subcategory) {
-      filters.push(`subcategory="${subcategory}"`);
+      let sub = subcategory[0].toLocaleUpperCase() + subcategory.slice(1);
+      filters.push(`subcategory="${sub}"`);
     }
 
     if (rating) {
