@@ -1,19 +1,27 @@
-"use client"
-import {subcategoryCountProp} from "@/types"
-import {fetchProducts} from '@/utils'
 
+import {subcategoryCountProp, ProductArray, Product} from "@/types"
+import {getProduct} from '@/utils'
+import {categories} from "@/constants"
+import FilterCategory from "./FilterCategory"
+import FilterRating from "./FilterRating"
   
-const Filter = ({ subcategoryCount}: { subcategoryCount: subcategoryCountProp}) => {
+const Filter = ({products}: {products: ProductArray}) => {
+
+  const subcategoryCount: { [key: string]: number } = {};
+
+  products.forEach((product: Product) => {
+ if (subcategoryCount[product.subcategory]) {
+   subcategoryCount[product.subcategory] += 1;
+ } else {
+   subcategoryCount[product.subcategory] = 1;
+ }
+
+});
   return (
-    <div>
-      <h3 className="">Categories</h3>
-      {Object.keys(subcategoryCount).map((key) => (
-    <div key={key}>
-      <button onClick={() => fetchProducts}>{key}</button>
-      <p>{subcategoryCount[key]}</p>
+    <div className="flex flex-col shrink-0 w-[260px]">
+      <FilterCategory subcategory={subcategoryCount}/>
+      <FilterRating />
     </div>
-  ))}
-    </div> 
   )
 }
 

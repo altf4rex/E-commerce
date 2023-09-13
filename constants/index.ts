@@ -1,12 +1,33 @@
 export const categories = [
-    "Bakery",
-    "Fruit and vegetables",
-    "Meat and fish",
-    "Drinks",
-    "Kitchen",
-    "Baby",
-    "Pharmacy"
-  ];
+  {
+    category: "Bakery",
+    categorySlug:"bakery",
+},
+  {
+    category: "Fruit and vegetables",
+    categorySlug:"fruit-vegetables",
+},
+  {
+    category: "Meat and fish",
+    categorySlug:"meat-fish",
+},
+  {
+    category: "Drinks",
+    categorySlug:"drinks",
+},
+  {
+    category: "Kitchen",
+    categorySlug:"kitchen",
+},
+  {
+    category: "Baby",
+    categorySlug:"baby",
+},
+  {
+    category: "Pharmacy",
+    categorySlug: "pharmacy",
+  }
+];
   
 export const  LeftMenuCategory = {
   header: 'Category menu',

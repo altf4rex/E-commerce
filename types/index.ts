@@ -27,33 +27,30 @@ export interface Product {
     id: number;
     name: string;
     slug: string;
-    description: string;
-    rating: string;
-    reviewCount: number;
-    fullDescription: string;
+    description?: string;
+    rating?: string;
+    reviewCount?: number;
+    fullDescription?: string;
     discountPrice: string;
     price: string;
-    image: string;
-    freshness: string;
-    farm: string;
-    deliveryArea: string;
-    stock: number;
-    sku: string;
+    image?: string;
+    freshness?: string;
+    farm?: string;
+    deliveryArea?: string;
+    stock?: number;
+    sku?: string;
     category: string;
     subcategory: string; 
-    buyBy: string;
-    delivery: number;
-    origins: string;
-    recipe: string;
-    vitamins: string;
+    buyBy?: string;
+    delivery?: number;
+    origins?: string;
+    recipe?: string;
+    vitamins?: string;
+    categorySlug: string;
   }
 
   export type ProductArray = {
-    page: number,
-    perPage: number,
-    totalPages: number,
-    totalItems: number,
-    items: Product[]
+    items: Product[];
   };
 
 export type subcategoryCountProp = {

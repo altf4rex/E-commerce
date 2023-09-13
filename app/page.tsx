@@ -11,7 +11,7 @@ import {bestSelling, bestFarmers} from "@/constants";
 
 export default async function Home() {
 
-  const obj = await part("Meat and fish");
+  const obj = await part("meat-fish");
   const products = obj.items; 
 
 

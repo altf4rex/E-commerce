@@ -1,50 +1,31 @@
-import {part, full} from "@/utils"
-import {Product, PageProps} from "@/types";
+import {part, getProduct} from "@/utils"
+import {Product, ProductArray} from "@/types";
 import ProductCard from "@/components/ProductCard";
 import Navigation from "@/components/Navigation";
 import Filter from "@/components/Filter";
 import PocketBase from 'pocketbase';
 const pb = new PocketBase('http://127.0.0.1:8090');
 
+  export default async function Page(props){
+    console.log(props)
+    const {category} = props.params;
+    const {rating, subcategory} = props.searchParams;
 
-export async function getStaticPaths() {
-  const products = await pb.collection('products').getFullList({
-        sort: '-created',
-    });
-  const paths = categories.map((category) => ({
-    params: { category },
-  }));
+    const products: ProductArray = (await getProduct(category, rating)) || { items: []};
 
-  return { paths, fallback: false };
-}
-
-
-  export default async function Page({ products }){
-
-    console.log(products)
-    
+    // params, searchParams
     return (
       <>
-      <div>fdjsf</div>
         <Navigation />
-         <main> 
-          {/* <Filter /> 
+         <main className="flex justify-between"> 
+          <Filter products={products} /> 
+          <div className="flex flex-wrap justify-around max-w-[869px]">
           {products.map((p: Product) => (
             <ProductCard {...p} />
-          ))} */}
+          ))}
+          </div>
+          
         </main>
       </>
     )
   }
-
-  // export async function getStaticProps() {
-  //   const products = await pb.collection('products').getFullList({
-  //     sort: '-created',
-  // });
-  
-  //   return {
-  //     props: {
-  //       products,
-  //     },
-  //   }
-  // }
