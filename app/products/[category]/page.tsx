@@ -10,8 +10,9 @@ const pb = new PocketBase('http://127.0.0.1:8090');
     const {category} = props.params;
     const {subcategory} = props.searchParams;
     const {rating} = props.searchParams;
-   
-    const products: ProductArray = (await getProduct(category, subcategory, rating)) || { items: []};
+    const {price} = props.searchParams;
+
+    const products: ProductArray = (await getProduct(category, subcategory, rating, price)) || { items: []};
 
     return (
       <>

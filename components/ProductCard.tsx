@@ -13,16 +13,14 @@ const ProductCard = ({name, category, price, discountPrice, description}: Produc
         <Link href="/">
           <h3 className="text-pop mb-1 text-base text-primary">{name}</h3> 
         </Link>
-          <p className="text-sans text-xs text-primaryLight ">{description}</p>
+          <p className="text-sans text-xs text-primaryLight">{description}</p>
           <div className="flex justify-between mt-4">
-            <div>
-              <p className="text-pop text-lg text-primary ">{discountPrice }</p>
-              {price && <p className="text-pop text-base line-through text-primaryLight" >{price}</p>}
+            <div className="flex flex-col justify-center">
+              <p className=" text-pop text-lg text-primary">{price}USD</p>
+              {discountPrice !== price && <p className="text-pop text-base line-through text-primaryLight">{discountPrice}USD</p>}
             </div>
             <button className="text-pop px-3 py-3 text-white rounded-2xl bg-secondary border border-solid border-secondaryBgDark">Add to Cart</button>
-         </div>
-         
-         
+         </div> 
     </div>
   )
 }

@@ -10,19 +10,32 @@ const Filter = ({products}: {products: ProductArray}) => {
 
   const subcategoryCount: { [key: string]: number } = {};
 
-  products.forEach((product: Product) => {
- if (subcategoryCount[product.subcategory]) {
-   subcategoryCount[product.subcategory] += 1;
- } else {
-   subcategoryCount[product.subcategory] = 1;
- }
+  let minPrice = Number.MAX_VALUE;
+  let maxPrice = Number.MIN_VALUE;
 
-});
+  products.forEach((product: Product) => {
+    if (subcategoryCount[product.subcategory]) {
+      subcategoryCount[product.subcategory] += 1;
+    } else {
+      subcategoryCount[product.subcategory] = 1;
+    }
+
+    const price = parseFloat(product.price);
+    if (!isNaN(price)) {
+      if (price < minPrice) {
+        minPrice = price;
+      }
+      if (price > maxPrice) {
+        maxPrice = price;
+      }
+    }
+  });
+
   return (
     <div className="flex flex-col shrink-0 w-[260px]">
       <FilterCategory subcategory={subcategoryCount}/>
       <FilterRating />
-      <FilterPrice /> 
+      <FilterPrice minPrice={minPrice} maxPrice={maxPrice}/> 
     </div>
   )
 }
