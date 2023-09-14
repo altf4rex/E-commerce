@@ -28,6 +28,7 @@ const FilterRating = () => {
 
   return (
     <div className="mb-12">
+      <h3 className='text-pop text-xl text-primary mb-3'>Rating</h3>
       <FormGroup>
         {ratings.map((ratingValue) => (
           <FormControlLabel

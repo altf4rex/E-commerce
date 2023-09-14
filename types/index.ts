@@ -16,23 +16,26 @@ export interface RecepiesBanner{
 // }
 
 export interface ProductCardProps{
-    name: string;
-    category: string;
-    discountPrice: string;
-    price: string;
-    description: string;
+    name?: string;
+    category?: string;
+    discountPrice?: string;
+    price?: string;
+    description?: string;
+    slug?:string;
 }
 
 export interface Product {
-    id: number;
+    collectionId: string;
+    collectionName: string,
+    created: string,
     name: string;
     slug: string;
     description?: string;
     rating?: string;
     reviewCount?: number;
     fullDescription?: string;
-    discountPrice: string;
-    price: string;
+    discountPrice?: number;
+    price: number;
     image?: string;
     freshness?: string;
     farm?: string;

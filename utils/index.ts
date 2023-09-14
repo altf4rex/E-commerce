@@ -3,10 +3,19 @@ import PocketBase from 'pocketbase';
 
 const pb = new PocketBase('http://127.0.0.1:8090');
 
-
-
-
-export async function getProduct(category?: string, subcategory?: string, rating?: string, priceRange?: string) {
+export async function getProduct({
+  category,
+  subcategory,
+  rating,
+  priceRange,
+  product,
+}: {
+  category?: string;
+  subcategory?: string;
+  rating?: string;
+  priceRange?: string;
+  product?: string;
+}) {
   try {
     let filter = "";
     const filters = [];
@@ -15,13 +24,17 @@ export async function getProduct(category?: string, subcategory?: string, rating
       filters.push(`categorySlug="${category}"`);
     }
 
-    if (subcategory) {
+    if (subcategory && subcategory !== 'undefined') { // Проверка на 'undefined'
       let sub = subcategory[0].toLocaleUpperCase() + subcategory.slice(1);
       filters.push(`subcategory="${sub}"`);
     }
 
-    if (rating) {
+    if (rating && rating !== 'undefined') { // Проверка на 'undefined'
       filters.push(`rating="${rating}"`);
+    }
+
+    if (product) {
+      filters.push(`slug="${product}"`);
     }
 
     if (priceRange) {
@@ -42,7 +55,6 @@ export async function getProduct(category?: string, subcategory?: string, rating
     console.error(`Произошла ошибка:`, error);
   }
 }
-
 export async function part(prop: string) {
   
     try {

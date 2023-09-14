@@ -7,7 +7,7 @@ import FilterRating from "./FilterRating"
 import FilterPrice from "./FilterPrice"
   
 const Filter = ({products}: {products: ProductArray}) => {
-
+  
   const subcategoryCount: { [key: string]: number } = {};
 
   let minPrice = Number.MAX_VALUE;
@@ -32,7 +32,7 @@ const Filter = ({products}: {products: ProductArray}) => {
   });
 
   return (
-    <div className="flex flex-col shrink-0 w-[260px]">
+    <div className="flex flex-col shrink-0 w-[260px] mr-4">
       <FilterCategory subcategory={subcategoryCount}/>
       <FilterRating />
       <FilterPrice minPrice={minPrice} maxPrice={maxPrice}/> 

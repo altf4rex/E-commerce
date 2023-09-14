@@ -7,9 +7,11 @@ import {categories} from "@/constants"
 import { useRouter, useSearchParams } from 'next/navigation'
 
 const FilterCategory = ({ subcategory }: { subcategory: subcategoryCountProp }) => {
+  
   const router = useRouter();
   const searchParams = useSearchParams();
   const currentCategory = searchParams.get('subcategory');
+  
   const handleCategoryClick = (category: string) => {
     const params = new URLSearchParams(searchParams.toString());
     if (currentCategory === category.toLocaleLowerCase()) {
@@ -19,6 +21,7 @@ const FilterCategory = ({ subcategory }: { subcategory: subcategoryCountProp }) 
     }
     router.push(`?${params.toString()}`);
   };
+
   return (
     <div className="mb-12">
       <h3 className="text-pop mb-4 text-lg text-primary">Categories</h3>
