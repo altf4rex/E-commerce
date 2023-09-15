@@ -20,24 +20,24 @@ export async function getProduct({
     let filter = "";
     const filters = [];
 
-    if (category) {
+    if (category && category !== 'undefined') {
       filters.push(`categorySlug="${category}"`);
     }
 
-    if (subcategory && subcategory !== 'undefined') { // Проверка на 'undefined'
+    if (subcategory && subcategory !== 'undefined') {
       let sub = subcategory[0].toLocaleUpperCase() + subcategory.slice(1);
       filters.push(`subcategory="${sub}"`);
     }
 
-    if (rating && rating !== 'undefined') { // Проверка на 'undefined'
+    if (rating && rating !== 'undefined') { 
       filters.push(`rating="${rating}"`);
     }
 
-    if (product) {
+    if (product && product !== 'undefined') {
       filters.push(`slug="${product}"`);
     }
 
-    if (priceRange) {
+    if (priceRange && priceRange !== 'undefined') {
       const [minPrice, maxPrice] = priceRange.split('-');
       if (minPrice && maxPrice) {
         filters.push(`price >= ${minPrice} && price <= ${maxPrice}`);

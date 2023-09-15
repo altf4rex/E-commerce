@@ -9,14 +9,14 @@ import Filter from "@/components/Filter";
     const {subcategory} = props.searchParams;
     const {rating} = props.searchParams;
     const {price} = props.searchParams;
-
+    
     const products: ProductArray = (await getProduct({category:`${category}`,subcategory:`${subcategory}`, rating:`${rating}`, priceRange:`${price}`})) || { items: []};
-  
+    
     return (
       <>
         <Navigation />
-         <main className="flex justify-between"> 
-          <Filter products={products} /> 
+         <main className="flex justify-start"> 
+         <Filter products={products} category={category}/>
           <div className="flex flex-wrap justify-start max-w-[869px]">
           {products.map((p: Product) => (
             <ProductCard {...p} />

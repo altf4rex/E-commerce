@@ -15,7 +15,7 @@ const handlePriceChange = (minPrice: number, maxPrice: number) => {
   const priceRange = `${minPrice}-${maxPrice}`;
 
   params.set('price', priceRange);
-  router.push(`?${params.toString()}`);
+  router.push(`?${params.toString()}`, { scroll: false });
 };
 
   const [value1, setValue1] = React.useState<number[]>([20, 37]);
