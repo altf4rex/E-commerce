@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Search from "./Search";
 import Image from "next/image";
+import Cart from "./Cart";
 
 export default function HeaderSearc() {
     return (
@@ -23,15 +24,7 @@ export default function HeaderSearc() {
                         height={24}
                     />
                 </Link>
-                <Link href="/" className="flex relative">
-                    <Image
-                        src='/basket.svg'
-                        alt='basket'
-                        width={24}
-                        height={24}
-                    />
-                    <div className="basket-circle">4</div>
-                </Link>
+                <Cart/>
             </div>
         </nav>
     )
