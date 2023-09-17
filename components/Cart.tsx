@@ -9,7 +9,7 @@ import { Product } from '@/types';
 import CartProduct from "./CartProduct";
  
 export default function Cart() {
-  const { cart, addToCart, removeFromCart } = useContext(CartContext);
+  const { cart, addToCart, removeFromCart, productCounts, cartCount } = useContext(CartContext);
   const [open, setOpen] = React.useState(false);
 
   return (
@@ -24,10 +24,10 @@ export default function Cart() {
             width={24}
             height={24}
         />
-        <div className="basket-circle">4</div>
+        <div className="basket-circle">{cartCount ? cartCount : 0}</div>
         </button>
-      <Drawer open={open} size='sm' anchor='right' onClose={() => setOpen(false)}>
-        <div className='m-4 flex justify-between'>
+      <Drawer open={open}  anchor='right' onClose={() => setOpen(false)}>
+        <div className='m-4 flex justify-between ='>
           <h1 className='text-pop text-2xl text-primary'>Shopping cart</h1>
           <Image
           className=' hover:bg-slate-200'
@@ -39,7 +39,7 @@ export default function Cart() {
           />
         </div>
         {
-          cart.map((p: Product) => (
+          cart?.map((p: Product) => (
             <CartProduct key={p.id} p={p}/>
           ))
         }

@@ -1,10 +1,10 @@
 import Navigation from "@/components/Navigation";
 import { getProduct } from "@/utils";
 import {Product} from "@/types"
-import SelectFormat from "@/components/Select";
 import Options from "@/components/Options";
 import ButtonAddCart from "@/components/ButtonAddCart";
 import Rating from '@mui/material/Rating';
+
  export default async function Page(props){
 
     const {product} = props.params;
@@ -61,7 +61,6 @@ import Rating from '@mui/material/Rating';
               <p className="text-pop text-2xl text-secondary">{p.price}USD</p>
               {p.discountPrice !== p.price && <p className="text-pop text-base line-through text-primaryLight">{p.discountPrice}USD</p>}
             </div>
-            <SelectFormat/>
             <ButtonAddCart product={p}/>
           </div>
           <div>

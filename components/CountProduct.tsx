@@ -5,8 +5,12 @@ import IconButton from '@mui/joy/IconButton';
 import Typography from '@mui/joy/Typography';
 import Add from '@mui/icons-material/Add';
 import Remove from '@mui/icons-material/Remove';
-const SelectFormat = () => {
-  const [count, setCount] = React.useState(0);
+import {CartContext} from "@/components/cart-provider.tsx"
+import {useContext} from "react"
+import { Product } from '@/types';
+const CountProduct = ({product}: {product: Product} ) => {
+  const { cart, addToCart, removeFromCart, productCounts, reduceCount} = useContext(CartContext);
+  // const [count, setCount] = React.useState(0);
   return (
     <Box
         sx={{
@@ -20,19 +24,17 @@ const SelectFormat = () => {
         <IconButton
           size="sm"
           variant="outlined"
-          onClick={() => setCount((c) => (
-            c ? c - 1 : 0
-            ))}
+          onClick={() => reduceCount(product.id)}
         >
           <Remove />
         </IconButton>
         <Typography fontWeight="md" textColor="text.secondary">
-          {count}
+          {productCounts[product.id]}
         </Typography>
         <IconButton
           size="sm"
           variant="outlined"
-          onClick={() => setCount((c) => c + 1)}
+          onClick={() => addToCart(product)}
         >
          <Add />
         </IconButton>
@@ -40,4 +42,4 @@ const SelectFormat = () => {
   );
 }
 
-export default SelectFormat
+export default CountProduct
