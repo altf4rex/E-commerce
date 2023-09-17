@@ -27,8 +27,8 @@ export default async function Home() {
          <section className="flex my-16">
           <LeftMenu {...BestSellingProducts}/>
             <div className="flex flex-wrap ">
-              {products.map((b: Product) => (
-                <ProductCard {...b}/>
+              {products.map((p) => (
+                <ProductCard p={p}/>
               ))} 
             </div>
           <div>
@@ -37,8 +37,8 @@ export default async function Home() {
         <section className="flex my-16">
           <LeftMenu {...BestFromFarmers}/>
             <div className="flex flex-wrap ">
-              {products.map((b: Product) => (
-                <ProductCard {...b}/>
+              {products.map((p) => (
+                <ProductCard p={p}/>
               ))} 
             </div>
           <div>

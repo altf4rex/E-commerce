@@ -1,12 +1,15 @@
 "use client"
-import * as React from 'react';
+import * as React from "react"
 import Box from '@mui/joy/Box';
 import Drawer from '@mui/joy/Drawer';
-import DialogTitle from '@mui/joy/DialogTitle';
-import ModalClose from '@mui/joy/ModalClose';
 import Image from "next/image";
-
+import {CartContext} from "@/components/cart-provider.tsx"
+import {useContext} from "react"
+import { Product } from '@/types';
+import CartProduct from "./CartProduct";
+ 
 export default function Cart() {
+  const { cart, addToCart, removeFromCart } = useContext(CartContext);
   const [open, setOpen] = React.useState(false);
 
   return (
@@ -24,8 +27,22 @@ export default function Cart() {
         <div className="basket-circle">4</div>
         </button>
       <Drawer open={open} size='sm' anchor='right' onClose={() => setOpen(false)}>
-        <ModalClose />
-        <DialogTitle>Title</DialogTitle>
+        <div className='m-4 flex justify-between'>
+          <h1 className='text-pop text-2xl text-primary'>Shopping cart</h1>
+          <Image
+          className=' hover:bg-slate-200'
+            src="/close.svg"
+            width={30}
+            height={22}
+            alt="close"
+            onClick={() => setOpen(false)}
+          />
+        </div>
+        {
+          cart.map((p: Product) => (
+            <CartProduct key={p.id} p={p}/>
+          ))
+        }
       </Drawer>
     </Box>
   );

@@ -25,6 +25,7 @@ export interface ProductCardProps{
 }
 
 export interface Product {
+    id: string;
     collectionId: string;
     collectionName: string,
     created: string,

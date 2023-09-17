@@ -1,12 +1,10 @@
 import Navigation from "@/components/Navigation";
 import { getProduct } from "@/utils";
 import {Product} from "@/types"
-import Image from "next/image";
 import SelectFormat from "@/components/Select";
-import Button from '@mui/joy/Button';
-import Add from '@mui/icons-material/Add';
 import Options from "@/components/Options";
-
+import ButtonAddCart from "@/components/ButtonAddCart";
+import Rating from '@mui/material/Rating';
  export default async function Page(props){
 
     const {product} = props.params;
@@ -25,7 +23,7 @@ import Options from "@/components/Options";
           <div>
           <div className="ml-8 mt-2">
             <h1 className="text-pop text-3xl text-primary">{p.name}</h1>
-            {/* <Image /> */}
+            <Rating name="read-only" value={Number(`${p.rating}`)} readOnly />
             <p className="my-10 text-sans text-lg text-primary">{p.fullDescription}</p>
             <div className="flex justify-between flex-wrap">
               <div className="flex">
@@ -64,7 +62,7 @@ import Options from "@/components/Options";
               {p.discountPrice !== p.price && <p className="text-pop text-base line-through text-primaryLight">{p.discountPrice}USD</p>}
             </div>
             <SelectFormat/>
-            <Button startDecorator={<Add />} style={{ backgroundColor: '#6A983C' }}>Add to cart</Button>
+            <ButtonAddCart product={p}/>
           </div>
           <div>
             <Options/>

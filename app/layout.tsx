@@ -3,7 +3,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import CategoryMenu from '@/components/CategoryMenu'
 import Footer from '@/components/Footer'
-import CartProvider from '@/components/CartProvider'
+import CartProvider from '@/components/cart-provider.tsx'
 
 export const metadata: Metadata = {
   title: 'E-commerce',

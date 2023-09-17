@@ -19,7 +19,7 @@ import Filter from "@/components/Filter";
          <Filter products={products} category={category}/>
           <div className="flex flex-wrap justify-start max-w-[869px]">
           {products.map((p: Product) => (
-            <ProductCard {...p} />
+            <ProductCard p={p} />
           ))}
           </div>
         </main>

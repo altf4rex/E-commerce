@@ -1,3 +1,4 @@
+"use client"
 import { createContext, useState } from 'react';
 import { Product } from '@/types';
 
@@ -15,15 +16,13 @@ export default function CartProvider({children}: {children: React.ReactNode}) {
 
   const addToCart = (product: Product) => {
     setCart([...cart, product]);
+    console.log(product)
   };
 
-  // Функция для удаления товара из корзины
   const removeFromCart = (productId: number) => {
-    const updatedCart = cart.filter((product) => product.collectionId !== productId.toString());
+    const updatedCart = cart.filter((product) => product.id !== productId.toString());
     setCart(updatedCart);
   };
-
-  // Здесь можно добавить другие функции для работы с корзиной
 
   return (
     <CartContext.Provider
