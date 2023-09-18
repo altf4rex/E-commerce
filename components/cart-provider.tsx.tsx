@@ -52,10 +52,9 @@ export default function CartProvider({children}: {children: React.ReactNode}) {
       }));
     }
     
-    if(productCounts[productId] = 1){
+    if(productCounts[productId] === 1){
       removeFromCart(productId)
     }
-    
   };
   const count = () => {
     if(Object.keys(productCounts).length !== 0) {

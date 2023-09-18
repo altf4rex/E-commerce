@@ -24,7 +24,7 @@ const FilterRating = () => {
     router.push(`?${params.toString()}`, { scroll: false });
   };
 
-  const ratings = ["rating-5", "rating-4", "rating-3", "rating-2", "rating-1"];
+  const ratings = ["5", "4", "3", "2", "1"];
 
   return (
     <div className="mb-12">

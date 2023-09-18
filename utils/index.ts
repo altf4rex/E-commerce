@@ -4,12 +4,14 @@ import PocketBase from 'pocketbase';
 const pb = new PocketBase('http://127.0.0.1:8090');
 
 export async function getProduct({
+  search,
   category,
   subcategory,
   rating,
   priceRange,
   product,
 }: {
+  search?: string;
   category?: string;
   subcategory?: string;
   rating?: string;
@@ -17,8 +19,11 @@ export async function getProduct({
   product?: string;
 }) {
   try {
-    let filter = "";
     const filters = [];
+
+    if (search && search !== "undefined") {
+      filters.push(`name ~ "${search}" || category ~ "${search}" || subcategory ~ "${search}"`);
+    }
 
     if (category && category !== 'undefined') {
       filters.push(`categorySlug="${category}"`);
@@ -44,9 +49,7 @@ export async function getProduct({
       }
     }
 
-    if (filters.length > 0) {
-      filter = filters.join(" && ");
-    }
+    const filter = filters.join(" && ");
 
     return await pb.collection('products').getFullList({
       filter,
@@ -55,6 +58,7 @@ export async function getProduct({
     console.error(`Произошла ошибка:`, error);
   }
 }
+
 export async function part(prop: string) {
   
     try {

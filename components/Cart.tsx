@@ -30,7 +30,7 @@ export default function Cart() {
         <div className='m-4 flex justify-between ='>
           <h1 className='text-pop text-2xl text-primary'>Shopping cart</h1>
           <Image
-          className=' hover:bg-slate-200'
+            className='hover:bg-slate-200'
             src="/close.svg"
             width={30}
             height={22}

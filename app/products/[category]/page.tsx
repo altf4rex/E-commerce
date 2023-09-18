@@ -9,8 +9,8 @@ import Filter from "@/components/Filter";
     const {subcategory} = props.searchParams;
     const {rating} = props.searchParams;
     const {price} = props.searchParams;
-    
-    const products: ProductArray = (await getProduct({category:`${category}`,subcategory:`${subcategory}`, rating:`${rating}`, priceRange:`${price}`})) || { items: []};
+    const {search} = props.searchParams;
+    const products: ProductArray = (await getProduct({search:`${search}`, category:`${category}`,subcategory:`${subcategory}`, rating:`${rating}`, priceRange:`${price}`})) || { items: []};
     
     return (
       <>
