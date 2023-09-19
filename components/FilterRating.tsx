@@ -6,6 +6,7 @@ import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormGroup from '@mui/material/FormGroup';
 import { useRouter, useSearchParams } from 'next/navigation'
+import { Rating } from "@mui/material";
 
 const FilterRating = () => {
   const searchParams = useSearchParams();
@@ -35,12 +36,13 @@ const FilterRating = () => {
             key={ratingValue}
             control={
               <Checkbox
+              
                 color="success"
                 checked={ratingValue === searchParams.get("rating")}
                 onChange={() => handleRatingCheckboxChange(ratingValue)}
               />
             }
-            label={ratingValue}
+            label={<Rating name="read-only" size="small" value={Number(`${ratingValue}`)} readOnly className="mt-2"/>}
           />
         ))}
       </FormGroup>

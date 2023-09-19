@@ -22,7 +22,8 @@ export async function getProduct({
     const filters = [];
 
     if (search && search !== "undefined") {
-      filters.push(`name ~ "${search}" || category ~ "${search}" || subcategory ~ "${search}"`);
+      const searchFilter = `name ~ "${search}" || category ~ "${search}" || subcategory ~ "${search}"`;
+      filters.push(`(${searchFilter})`);
     }
 
     if (category && category !== 'undefined') {
@@ -38,7 +39,7 @@ export async function getProduct({
       filters.push(`rating="${rating}"`);
     }
 
-    if (product && product !== 'undefined') {
+    if (product && product !== 'undefined' ) {
       filters.push(`slug="${product}"`);
     }
 

@@ -4,6 +4,8 @@ import {Product} from "@/types"
 import Options from "@/components/Options";
 import ButtonAddCart from "@/components/ButtonAddCart";
 import Rating from '@mui/material/Rating';
+import { Suspense } from 'react';
+import {Loading} from "@/components/Loading";
 
  export default async function Page(props){
 
@@ -13,6 +15,7 @@ import Rating from '@mui/material/Rating';
 
     return (
       <>
+      <Suspense fallback={<Loading />}>
         <Navigation />
         <main className="flex">
           <div>
@@ -64,10 +67,11 @@ import Rating from '@mui/material/Rating';
             <ButtonAddCart product={p}/>
           </div>
           <div>
-            <Options/>
+            <Options origins={p.origins} recipe={p.recipe}/>
           </div>
          </div>
         </main>
+        </Suspense>
       </>
     )
   }

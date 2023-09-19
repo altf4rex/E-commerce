@@ -1,6 +1,7 @@
 "use client"
 import { useRouter, useSearchParams } from 'next/navigation';
 import { FormEvent } from 'react'
+import SearchIcon from '@mui/icons-material/Search';
 
 export default function Search(){
  const router = useRouter();
@@ -15,9 +16,9 @@ const defaultSearcchParams = searchParams.get("search") ?? "";
   }
 
   return (
-    <form onSubmit={onSubmit}>
-      <input id="search" type="search" name="search" className='w-100 bg-red-200' defaultValue={defaultSearcchParams}/>
-      <button type="submit">Submit</button>
+    <form onSubmit={onSubmit} className='flex bg-primaryBg border border-gray-300 rounded-2xl'>
+      <input id="search" type="search" name="search" className='w-[262px] p-3 text-sans text-sm text-gray-500 bg-primaryBg rounded-2xl outline-none' defaultValue={defaultSearcchParams} placeholder='Search Products, categories ...'/>
+      <button type="submit" className='pr-2'><SearchIcon /></button>
     </form>
   )
 }

@@ -1,62 +1,105 @@
 "use client"
 import * as React from 'react';
 import Box from '@mui/joy/Box';
-import Radio from '@mui/joy/Radio';
-import RadioGroup from '@mui/joy/RadioGroup';
+import Chip from '@mui/joy/Chip';
+import Tabs from '@mui/joy/Tabs';
+import TabList from '@mui/joy/TabList';
+import Tab, { tabClasses } from '@mui/joy/Tab';
+import TabPanel from '@mui/joy/TabPanel';
 import Typography from '@mui/joy/Typography';
+import ProductDescription from './ProductDescription';
 
-export default function Options() {
-  const [justify, setJustify] = React.useState('flex-start');
+export default function TabsPageExample({origins, recipe}: {origins: string, recipe: string}) {
+  const [index, setIndex] = React.useState(0);
   return (
-    <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-      <Typography id="segmented-controls-example" fontWeight="lg" fontSize="sm">
-        Justify:
-      </Typography>
-      <RadioGroup
-        orientation="horizontal"
-        aria-labelledby="segmented-controls-example"
-        name="justify"
-        value={justify}
-        onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-          setJustify(event.target.value)
-        }
-        sx={{
-          minHeight: 48,
-          padding: '4px',
-          borderRadius: '12px',
-          bgcolor: 'neutral.softBg',
-          '--RadioGroup-gap': '4px',
-          '--Radio-actionRadius': '8px',
-        }}
+    <Box
+      sx={{
+        flexGrow: 1,
+        overflowX: 'hidden',
+        p: 3,
+        mt: 2,
+        borderRadius: 'md',
+      }}
+    >
+      <Tabs
+        aria-label="Pipeline"
+        value={index}
+        onChange={(event, value) => setIndex(value as number)}
       >
-        {['flex-start', 'center', 'flex-end'].map((item) => (
-          <Radio
-            key={item}
-            color="neutral"
-            value={item}
-            disableIcon
-            label={item}
-            variant="plain"
-            sx={{
-              px: 2,
-              alignItems: 'center',
-            }}
-            slotProps={{
-              action: ({ checked }) => ({
-                sx: {
-                  ...(checked && {
-                    bgcolor: 'background.surface',
-                    boxShadow: 'sm',
-                    '&:hover': {
-                      bgcolor: 'background.surface',
-                    },
-                  }),
+        <TabList
+          sx={{
+            pt: 2,
+            justifyContent: 'center',
+            [`&& .${tabClasses.root}`]: {
+              flex: 'initial',
+              bgcolor: 'transparent',
+              '&:hover': {
+                bgcolor: 'transparent',
+              },
+              [`&.${tabClasses.selected}`]: {
+                color: 'primary.plainColor',
+                '&::after': {
+                  height: '3px',
+                  borderTopLeftRadius: '3px',
+                  borderTopRightRadius: '3px',
+                  bgcolor: 'primary.500',
                 },
-              }),
-            }}
-          />
-        ))}
-      </RadioGroup>
+              },
+            },
+          }}
+        >
+          <Tab indicatorInset>
+          Description{' '}
+          </Tab>
+          <Tab indicatorInset>
+          Reviews{' '}
+            <Chip
+              size="sm"
+              variant="soft"
+              color={index === 1 ? 'primary' : 'neutral'}
+              sx={{ ml: 1 }}
+            >
+              24
+            </Chip>
+          </Tab>
+          <Tab indicatorInset>
+            Questions{' '}
+            <Chip
+              size="sm"
+              variant="soft"
+              color={index === 1 ? 'primary' : 'neutral'}
+              sx={{ ml: 1 }}
+            >
+              24
+            </Chip>
+            </Tab>
+        </TabList>
+        <Box
+          sx={(theme) => ({
+            '--bg': theme.vars.palette.background.surface,
+            background: 'var(--bg)',
+            boxShadow: '0 0 0 100vmax var(--bg)',
+            clipPath: 'inset(0 -100vmax)',
+          })}
+        >
+          <TabPanel value={0}>
+          <ProductDescription origins={origins} recipe={recipe}/>
+          </TabPanel>
+          <TabPanel value={1}>
+            <Typography
+              level="h2"
+              component="div"
+              fontSize="lg"
+              textColor="text.primary"
+            >
+              Library panel
+            </Typography>
+          </TabPanel>
+          <TabPanel value={2}>
+          Library panel
+          </TabPanel>
+        </Box>
+      </Tabs>
     </Box>
   );
 }
