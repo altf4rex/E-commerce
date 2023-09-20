@@ -7,30 +7,45 @@ import CountProduct from "./CountProduct";
 const CartProduct = ({p}: {p: Product}) => {
 const { cart, addToCart, removeFromCart, productCounts } = useContext(CartContext);
   return (
-    <div className="flex mx-5 mb-8">
-        <div>
-            <div className="w-[100px] h-[67px] rounded-2xl bg-primaryBg"></div>
-            <div className="flex w-max px-1 rounded-xl cursor-pointer hover:bg-slate-200" onClick={() => removeFromCart(`${p.id}`)}>
+    <div className="flex mx-4 mb-6 mt-1 p-2 pl-8 bg-primaryBg border border-slate-200 rounded-xl">
+        <div className="mr-5">
+            {/* <div className="w-[150px] h-[100px] rounded-2xl bg-primary"></div> */}
+            <Image
+          className="mb-4 my-4 rounded-2xl bg-primaryBg"
+          src='/kf.jpg'
+          alt='product'
+          width={150}
+          height={100}
+          />
+            <div className="flex w-max px-2 mt-4 rounded-xl cursor-pointer hover:bg-slate-200" onClick={() => removeFromCart(`${p.id}`)}>
                 <Image 
                     src="/close.svg"
                     width={12}
                     height={12}
                     alt="remove"
                 />
-                <p className="text-sans text-sm ml-2 text-primary ">Remove</p>
+                <p className="text-sans text-base ml-2 text-primary">Remove</p>
             </div>
         </div>
-        <div>
-            <h3 className="text-pop text-base text-primary">{ p?.name }</h3>
-            <div className="flex"><p>Delivery:</p><p>{p.delivery}</p></div>
-            <div className="flex"><p>Delivery area:</p><p>{p.deliveryArea}</p></div>
-            <Rating name="read-only" color="black" value={Number(`${p.rating}`)} readOnly />
-            <div>
-                <p className="text-pop text-2xl text-secondary">{p.price * productCounts[p.id]}USD</p>
-                {p.discountPrice !== p.price && <p className="text-pop text-base line-through text-primaryLight">{p.discountPrice}USD</p>}
+        <div >
+            <h3 className="mb-1 text-pop text-lg text-primary">{ p?.name }</h3>
+            <div className="flex  mb-2 ">
+                <p className="mr-2 text-sans text-base text-primaryLight">Delivery:</p>
+                <p className="text-sans text-base text-primary">{p.delivery}</p>
             </div>
-            <div>
-                <CountProduct product={p}/>
+            <div className="flex">
+                <p className="mr-2 text-sans text-base text-primaryLight">Delivery area:</p>
+                <p className="text-sans text-base text-primary">{p.deliveryArea}</p>
+            </div>
+            <Rating name="read-only" color="black" value={Number(`${p.rating}`)} readOnly className="mt-3"/>
+            <div  className="flex justify-between items-center">
+                <div className="mr-6">
+                    <p className="text-pop text-2xl text-secondary">{p.price}USD</p>
+                    {p.discountPrice !== p.price && <p className="text-pop text-base line-through text-primaryLight">{p.discountPrice}USD</p>}
+                </div>
+                <div>
+                    <CountProduct product={p}/>
+                </div>
             </div>
         </div>
     </div>

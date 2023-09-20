@@ -3,8 +3,6 @@ import {Product, ProductArray} from "@/types";
 import ProductCard from "@/components/ProductCard";
 import Navigation from "@/components/Navigation";
 import Filter from "@/components/Filter";
-import { Suspense } from 'react';
-import { Loading } from "@/components/Loading";
 
   export default async function Page(props){
     let category;
@@ -18,7 +16,6 @@ import { Loading } from "@/components/Loading";
     
     return (
       <>
-      <Suspense fallback={<Loading />}>
         <Navigation />
          <main className="flex justify-start"> 
          <Filter products={products} category={category}/>
@@ -28,7 +25,6 @@ import { Loading } from "@/components/Loading";
             ))}
           </div>
         </main>
-        </Suspense>
       </>
     )
-  }
+}

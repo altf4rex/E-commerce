@@ -26,8 +26,8 @@ export default function Cart() {
         />
         <div className="basket-circle">{cartCount ? cartCount : 0}</div>
         </button>
-      <Drawer open={open}  anchor='right' onClose={() => setOpen(false)}>
-        <div className='m-4 flex justify-between ='>
+      <Drawer open={open} anchor='right' onClose={() => setOpen(false)}>
+        <div className='m-4 flex justify-between'>
           <h1 className='text-pop text-2xl text-primary'>Shopping cart</h1>
           <Image
             className='hover:bg-slate-200'
@@ -43,6 +43,18 @@ export default function Cart() {
             <CartProduct key={p.id} p={p}/>
           ))
         }
+        <div>
+          <div>
+            <h4>Subtotal</h4>
+            <span>
+              {productCounts && Object.values(productCounts).reduce(((a, b)=> a + b), 0)}
+            </span>
+          </div>
+          <div>
+            <div>Continue shopping</div>
+            <div>Go to Checkout</div>
+          </div>
+        </div>
       </Drawer>
     </Box>
   );

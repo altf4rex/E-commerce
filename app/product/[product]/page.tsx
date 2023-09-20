@@ -4,8 +4,7 @@ import {Product} from "@/types"
 import Options from "@/components/Options";
 import ButtonAddCart from "@/components/ButtonAddCart";
 import Rating from '@mui/material/Rating';
-import { Suspense } from 'react';
-import {Loading} from "@/components/Loading";
+import Image from "next/image";
 
  export default async function Page(props){
 
@@ -15,13 +14,19 @@ import {Loading} from "@/components/Loading";
 
     return (
       <>
-      <Suspense fallback={<Loading />}>
         <Navigation />
         <main className="flex">
           <div>
+          <Image
+          className="mb-4 my-4 rounded-2xl bg-primaryBg"
+          src='/kf.jpg'
+          alt='product'
+          width={569}
+          height={436}
+          />
+            {/* <div className="w-[569px] h-[436px] my-4 rounded-2xl bg-primaryBg"></div>
             <div className="w-[569px] h-[436px] my-4 rounded-2xl bg-primaryBg"></div>
-            <div className="w-[569px] h-[436px] my-4 rounded-2xl bg-primaryBg"></div>
-            <div className="w-[569px] h-[436px] my-4 rounded-2xl bg-primaryBg"></div>
+            <div className="w-[569px] h-[436px] my-4 rounded-2xl bg-primaryBg"></div> */}
           </div>
           <div>
           <div className="ml-8 mt-2">
@@ -71,7 +76,6 @@ import {Loading} from "@/components/Loading";
           </div>
          </div>
         </main>
-        </Suspense>
       </>
     )
   }

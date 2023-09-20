@@ -8,8 +8,15 @@ const ProductCard = ({p}: {p: Product}) => {
   return (
     <div className="p-4 mb-4 mr-4 rounded-2xl border border-solid text-gray-400 h-min">
         <Link href={`/product/${p.slug}`}>
-          <div className="w-[237px] h-[170px] bg-primaryBg mb-4">
-          </div>
+          {/* <div className="w-[237px] h-[170px] bg-primaryBg mb-4">
+          </div> */}
+          <Image
+          className="mb-4 bg-primaryBg"
+          src='/kf.jpg'
+          alt='product'
+          width={237}
+          height={170}
+          />
         </Link>
         <div className="w-[237px]">
         <Link href={`/product/${p.slug}`}>

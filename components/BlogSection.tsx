@@ -1,5 +1,6 @@
 import Link from "next/link"
 import Image from "next/image";
+import SkeletonCollectionPage from "./SkeletonCollectionPage";
 
 const BlogSection = () => {
   return (
@@ -25,9 +26,9 @@ const BlogSection = () => {
           width={469}
           height={400}
         />  
-        
         </div>
     </section>
+   
   )
   // что с маршрутом ?
 }

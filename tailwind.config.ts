@@ -21,5 +21,9 @@ const config: Config = {
   },
   plugins: [],
 }
+
+// hover // hover:bg-slate-200
+// borde // text-gray-500
+
 export default config
 
