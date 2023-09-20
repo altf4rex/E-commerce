@@ -5,6 +5,7 @@ import Options from "@/components/Options";
 import ButtonAddCart from "@/components/ButtonAddCart";
 import Rating from '@mui/material/Rating';
 import Image from "next/image";
+import toUrl from "@/utils/toUrl";
 
  export default async function Page(props){
 
@@ -16,18 +17,16 @@ import Image from "next/image";
       <>
         <Navigation />
         <main className="flex">
-          <div>
           <Image
-          className="mb-4 my-4 rounded-2xl bg-primaryBg"
-          src='/kf.jpg'
+          className="w-[569px] h-[350px] rounded-2xl rounded-2xl object-contain"
+          src={toUrl(p.img, p.id)}
           alt='product'
           width={569}
-          height={436}
+          height={350}
           />
             {/* <div className="w-[569px] h-[436px] my-4 rounded-2xl bg-primaryBg"></div>
             <div className="w-[569px] h-[436px] my-4 rounded-2xl bg-primaryBg"></div>
             <div className="w-[569px] h-[436px] my-4 rounded-2xl bg-primaryBg"></div> */}
-          </div>
           <div>
           <div className="ml-8 mt-2">
             <h1 className="text-pop text-3xl text-primary">{p.name}</h1>

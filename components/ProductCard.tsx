@@ -3,16 +3,17 @@ import {Product} from "@/types"
 import Link from "next/link"
 import ButtonAddCart from "./ButtonAddCart"
 import Rating from '@mui/material/Rating';
-
+import toUrl from "@/utils/toUrl"
 const ProductCard = ({p}: {p: Product}) => {
+  console.log(toUrl(p.img, p.id))
   return (
     <div className="p-4 mb-4 mr-4 rounded-2xl border border-solid text-gray-400 h-min">
         <Link href={`/product/${p.slug}`}>
           {/* <div className="w-[237px] h-[170px] bg-primaryBg mb-4">
           </div> */}
           <Image
-          className="mb-4 bg-primaryBg"
-          src='/kf.jpg'
+          className="w-[237px] h-[170px] mb-4 bg-primaryBg rounded-xl object-fill"
+          src={toUrl(p.img, p.id)}
           alt='product'
           width={237}
           height={170}

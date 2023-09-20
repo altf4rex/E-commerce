@@ -51,6 +51,7 @@ export interface Product {
     recipe?: string;
     vitamins?: string;
     categorySlug: string;
+    img?: string;
   }
 
   export type ProductArray = {
