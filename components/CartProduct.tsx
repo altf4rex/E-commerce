@@ -4,15 +4,15 @@ import Rating from '@mui/material/Rating';
 import {CartContext} from "@/components/cart-provider.tsx"
 import {useContext} from "react"
 import CountProduct from "./CountProduct";
+import toUrl from "@/utils/toUrl";
 const CartProduct = ({p}: {p: Product}) => {
 const { cart, addToCart, removeFromCart, productCounts } = useContext(CartContext);
   return (
-    <div className="flex mx-4 mb-6 mt-1 p-2 pl-8 bg-primaryBg border border-slate-200 rounded-xl">
+    <div className="flex mx-4 mb-6 mt-1 p-2 pl-6 bg-primaryBg border border-slate-200 rounded-xl">
         <div className="mr-5">
-            {/* <div className="w-[150px] h-[100px] rounded-2xl bg-primary"></div> */}
             <Image
-          className="mb-4 my-4 rounded-2xl bg-primaryBg"
-          src='/kf.jpg'
+          className="mb-4 mt-2 rounded-2xl bg-primaryBg"
+          src={toUrl(p.img, p.id)}
           alt='product'
           width={150}
           height={100}
@@ -28,8 +28,8 @@ const { cart, addToCart, removeFromCart, productCounts } = useContext(CartContex
             </div>
         </div>
         <div >
-            <h3 className="mb-1 text-pop text-lg text-primary">{ p?.name }</h3>
-            <div className="flex  mb-2 ">
+            <h3 className="mb-2 mt-1 text-pop text-lg text-primary">{ p?.name }</h3>
+            <div className="flex  mb-1 ">
                 <p className="mr-2 text-sans text-base text-primaryLight">Delivery:</p>
                 <p className="text-sans text-base text-primary">{p.delivery}</p>
             </div>

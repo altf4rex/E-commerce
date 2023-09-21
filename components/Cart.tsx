@@ -7,9 +7,10 @@ import {CartContext} from "@/components/cart-provider.tsx"
 import {useContext} from "react"
 import { Product } from '@/types';
 import CartProduct from "./CartProduct";
+import Link from "next/link";
  
 export default function Cart() {
-  const { cart, addToCart, removeFromCart, productCounts, cartCount } = useContext(CartContext);
+  const { cart, addToCart, removeFromCart, productCounts, cartCount, totalCartPrice } = useContext(CartContext);
   const [open, setOpen] = React.useState(false);
 
   return (
@@ -26,7 +27,7 @@ export default function Cart() {
         />
         <div className="basket-circle">{cartCount ? cartCount : 0}</div>
         </button>
-      <Drawer open={open} anchor='right' onClose={() => setOpen(false)}>
+      <Drawer className="relative" open={open} anchor='right' onClose={() => setOpen(false)}>
         <div className='m-4 flex justify-between'>
           <h1 className='text-pop text-2xl text-primary'>Shopping cart</h1>
           <Image
@@ -43,16 +44,16 @@ export default function Cart() {
             <CartProduct key={p.id} p={p}/>
           ))
         }
-        <div>
-          <div>
-            <h4>Subtotal</h4>
-            <span>
-              {productCounts && Object.values(productCounts).reduce(((a, b)=> a + b), 0)}
+        <div className="absolute bottom-2 p-4 divide-y-2">
+          <div className="pb-2">
+            <h4 className='mb-2 text-pop text-sm text-primary'>Subtotal</h4>
+            <span className='text-pop text-2xl text-primary'>
+              {totalCartPrice}USD
             </span>
           </div>
-          <div>
-            <div>Continue shopping</div>
-            <div>Go to Checkout</div>
+          <div className="flex items-center pt-4 ">
+            <button onClick={() => setOpen(false)} className='py-3 px-4 mb-2 mr-8 text-pop text-base text-primary hover:bg-slate-200 rounded-2xl'>Continue shopping</button>
+            <Link href="/checkout" className='py-3 px-4 text-pop text-base text-white bg-secondary border border-secondaryBgDark rounded-2xl hover:bg-secondaryHover'>Go to Checkout</Link>
           </div>
         </div>
       </Drawer>

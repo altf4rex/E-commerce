@@ -4,6 +4,7 @@ import { Product } from '@/types';
 
 interface CartContextType {
   cartCount: number;
+  totalCartPrice: number;
   cart: Product[];
   addToCart: (product: Product) => void;
   removeFromCart: (productId: string) => void;
@@ -56,12 +57,27 @@ export default function CartProvider({children}: {children: React.ReactNode}) {
       removeFromCart(productId)
     }
   };
+
   const count = () => {
     if(Object.keys(productCounts).length !== 0) {
       return Object.values(productCounts).reduce((accumulatedValue , currentValue ) => accumulatedValue + currentValue );
-    }
+    } else return 0
   }
+
+  const calculateTotal = () => {
+    const total = Object.keys(productCounts).reduce((acc, productId) => {
+      const productCount = productCounts[productId];
+      const product = cart.find((item) => item.id === productId);
+      if (product && productCount > 0) {
+        return acc + productCount * product.price;
+      }
+      return acc;
+    }, 0);
+    return Number(total.toFixed(2)); 
+  };
+
   const cartCount: number = count();
+  const totalCartPrice: number = calculateTotal();
   return (
     <CartContext.Provider
       value={{
@@ -71,6 +87,7 @@ export default function CartProvider({children}: {children: React.ReactNode}) {
         productCounts,
         reduceCount,
         cartCount,
+        totalCartPrice,
       }}
     >
       {children}
