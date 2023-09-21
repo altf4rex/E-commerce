@@ -38,6 +38,13 @@ export const  LeftMenuCategory = {
     "Drinks",
     "Kitchen",
   ],
+  slug: [
+    "bakery",
+    "fruit-vegetables",
+    "meat-fish",
+    "drinks",
+    "kitchen",
+  ],
   button: "More categories"
 };
 
@@ -45,10 +52,18 @@ export const  BestSellingProducts = {
   header: 'Best selling products',
   array: [
     "Kitchen",
-    "Special nutrition",
+    "Bakery",
     "Meat and fish",
     "Pharmacy",
-    "Baby",
+    "Drinks",
+  ],
+  slug: [
+    "kitchen",
+    "bakery",
+    "meat-fish",
+    "fruit-vegetables",
+    "pharmacy",
+    "drinks",
   ],
   button: "More products"
 };
@@ -57,10 +72,17 @@ export const  BestFromFarmers = {
   header: 'Best from Farmers',
   array: [
     "Carrots",
-    "Tomatoes",
-    "Potatoes",
+    "Apples",
+    "Broccoli",
     "Chicken",
-    "Pork"
+    "Fish"
+  ],
+  slug: [
+    "fruit-vegetables",
+    "fruit-vegetables",
+    "fruit-vegetables",
+    "meat-fish",
+    "meat-fish"
   ],
   button: "More products"
 };

@@ -8,8 +8,10 @@ import Tab, { tabClasses } from '@mui/joy/Tab';
 import TabPanel from '@mui/joy/TabPanel';
 import Typography from '@mui/joy/Typography';
 import ProductDescription from './ProductDescription';
+import Reviews from './Reviews';
+import Question from './Question';
 
-export default function TabsPageExample({origins, recipe}: {origins: string, recipe: string}) {
+export default function TabsPageExample({origins, recipe, rating}: {origins: string, recipe: string, rating:string}) {
   const [index, setIndex] = React.useState(0);
   return (
     <Box
@@ -17,7 +19,6 @@ export default function TabsPageExample({origins, recipe}: {origins: string, rec
         flexGrow: 1,
         overflowX: 'hidden',
         p: 3,
-        mt: 2,
         borderRadius: 'md',
       }}
     >
@@ -27,6 +28,7 @@ export default function TabsPageExample({origins, recipe}: {origins: string, rec
         onChange={(event, value) => setIndex(value as number)}
       >
         <TabList
+        className="text-pop text-lg bg-white"
           sx={{
             pt: 2,
             justifyContent: 'center',
@@ -37,12 +39,12 @@ export default function TabsPageExample({origins, recipe}: {origins: string, rec
                 bgcolor: 'transparent',
               },
               [`&.${tabClasses.selected}`]: {
-                color: 'primary.plainColor',
+                color: '#6A983C',
                 '&::after': {
                   height: '3px',
                   borderTopLeftRadius: '3px',
                   borderTopRightRadius: '3px',
-                  bgcolor: 'primary.500',
+                  bgcolor: '#6A983C',
                 },
               },
             },
@@ -59,7 +61,7 @@ export default function TabsPageExample({origins, recipe}: {origins: string, rec
               color={index === 1 ? 'primary' : 'neutral'}
               sx={{ ml: 1 }}
             >
-              24
+              2
             </Chip>
           </Tab>
           <Tab indicatorInset>
@@ -70,33 +72,25 @@ export default function TabsPageExample({origins, recipe}: {origins: string, rec
               color={index === 1 ? 'primary' : 'neutral'}
               sx={{ ml: 1 }}
             >
-              24
+              2
             </Chip>
             </Tab>
         </TabList>
         <Box
           sx={(theme) => ({
-            '--bg': theme.vars.palette.background.surface,
-            background: 'var(--bg)',
-            boxShadow: '0 0 0 100vmax var(--bg)',
-            clipPath: 'inset(0 -100vmax)',
+            background: '#FFF'
           })}
         >
           <TabPanel value={0}>
-          <ProductDescription origins={origins} recipe={recipe}/>
+            <ProductDescription origins={origins} recipe={recipe}/>
           </TabPanel>
           <TabPanel value={1}>
-            <Typography
-              level="h2"
-              component="div"
-              fontSize="lg"
-              textColor="text.primary"
-            >
-              Library panel
-            </Typography>
+            <Reviews rating={rating} />
+            <Reviews rating={rating} />
           </TabPanel>
           <TabPanel value={2}>
-          Library panel
+            <Question />
+            <Question />
           </TabPanel>
         </Box>
       </Tabs>

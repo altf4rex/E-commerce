@@ -24,6 +24,6 @@ const config: Config = {
 
 // hover // hover:bg-slate-200
 // borde // text-gray-500
-
+// text //  text-gray-400
 export default config
 

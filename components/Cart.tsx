@@ -44,6 +44,9 @@ export default function Cart() {
             <CartProduct key={p.id} p={p}/>
           ))
         }
+        {
+        totalCartPrice ?
+        (
         <div className="absolute bottom-2 p-4 divide-y-2">
           <div className="pb-2">
             <h4 className='mb-2 text-pop text-sm text-primary'>Subtotal</h4>
@@ -56,6 +59,8 @@ export default function Cart() {
             <Link href="/checkout" className='py-3 px-4 text-pop text-base text-white bg-secondary border border-secondaryBgDark rounded-2xl hover:bg-secondaryHover'>Go to Checkout</Link>
           </div>
         </div>
+        ) : ""
+        }
       </Drawer>
     </Box>
   );

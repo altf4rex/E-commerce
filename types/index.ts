@@ -1,6 +1,7 @@
 export interface LeftMenuProps{
     header: string;
     array: string[];
+    slug: string[];
     button: string;
 }
 

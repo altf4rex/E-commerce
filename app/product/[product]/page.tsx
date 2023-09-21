@@ -16,24 +16,21 @@ import toUrl from "@/utils/toUrl";
     return (
       <>
         <Navigation />
-        <main className="flex">
+        <main className="flex flex-wrap">
           <Image
-          className="w-[569px] h-[350px] rounded-2xl rounded-2xl object-contain"
+          className="w-[500px] h-[350px] rounded-2xl rounded-2xl object-contain"
           src={toUrl(p.img, p.id)}
           alt='product'
           width={569}
           height={350}
           />
-            {/* <div className="w-[569px] h-[436px] my-4 rounded-2xl bg-primaryBg"></div>
-            <div className="w-[569px] h-[436px] my-4 rounded-2xl bg-primaryBg"></div>
-            <div className="w-[569px] h-[436px] my-4 rounded-2xl bg-primaryBg"></div> */}
           <div>
-          <div className="ml-8 mt-2">
+          <div className="ml-8 mt-2 max-w-[550px]">
             <h1 className="text-pop text-3xl text-primary">{p.name}</h1>
             <Rating name="read-only" value={Number(`${p.rating}`)} readOnly />
             <p className="my-10 text-sans text-lg text-primary">{p.fullDescription}</p>
             <div className="flex justify-between flex-wrap">
-              <div className="flex">
+              <div className="flex mr-2">
                 <div className="flex flex-col mr-10 text-sans text-base text-gray-400">
                   <p className="mb-2">SKU:</p>
                   <p className="mb-2">Category:</p>
@@ -63,7 +60,7 @@ import toUrl from "@/utils/toUrl";
               </div>
             </div>
           </div>
-          <div className="flex justify-between items-center ml-8 mt-4 px-6 py-4 border rounded-2xl border-primaryBg">
+          <div className="flex justify-between items-center ml-8 mt-8 px-16 py-4 border rounded-2xl border-primaryBg">
             <div>
               <p className="text-pop text-2xl text-secondary">{p.price}USD</p>
               {p.discountPrice !== p.price && <p className="text-pop text-base line-through text-primaryLight">{p.discountPrice}USD</p>}
@@ -71,7 +68,7 @@ import toUrl from "@/utils/toUrl";
             <ButtonAddCart product={p}/>
           </div>
           <div>
-            <Options origins={p.origins} recipe={p.recipe}/>
+            <Options origins={p.origins} recipe={p.recipe} rating={p.rating}/>
           </div>
          </div>
         </main>

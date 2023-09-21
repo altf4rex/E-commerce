@@ -11,8 +11,11 @@ import {bestSelling, bestFarmers} from "@/constants";
 
 export default async function Home() {
 
-  const obj = await part("meat-fish");
-  const products = obj.items; 
+  const bestSelling = await part("bakery");
+  const bestSellingProducts = bestSelling.items; 
+
+  const bestFarmers = await part("fruit-vegetables");
+  const bestFarmersProducts = bestFarmers.items; 
 
 
   return (
@@ -27,7 +30,7 @@ export default async function Home() {
          <section className="flex my-16">
           <LeftMenu {...BestSellingProducts}/>
             <div className="flex flex-wrap ">
-              {products.map((p) => (
+              {bestSellingProducts.map((p) => (
                 <ProductCard p={p}/>
               ))} 
             </div>
@@ -37,7 +40,7 @@ export default async function Home() {
         <section className="flex my-16">
           <LeftMenu {...BestFromFarmers}/>
             <div className="flex flex-wrap ">
-              {products.map((p) => (
+              {bestFarmersProducts.map((p) => (
                 <ProductCard p={p}/>
               ))} 
             </div>
