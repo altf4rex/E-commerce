@@ -122,3 +122,37 @@ export const bestFarmers = {
   name: "Wild-Caught Salmon"
 }
 
+export const blogPosts = [
+  {
+    title: "From Farm to Table: Fresh Ingredient Recipes",
+    img: "/blog-sm-1.jpg"
+  },
+  {
+    title: "Exploring International Flavors at Home",
+    img: "/blog-sm-2.jpg"
+  },
+  {
+    title: "The Art of Food Presentation",
+    img: "/blog-sm-3.jpg"
+  },
+  {
+    title: "Healthier Choices, Tastier Bites",
+    img: "/blog-sm-4.jpg"
+  },
+  {
+    title: "Culinary Adventures: Taste the World",
+    img: "/blog-sm-6.jpg"
+  },
+  {
+    title: "From Farm to Table: Fresh Ingredient Recipes",
+    img: "/blog-sm-5.jpg"
+  },
+  {
+    title: "Kitchen Magic: Creative Cooking Ideas",
+    img: "/blog-sm-7.jpg"
+  },
+  {
+    title: "Dessert Delights: Satisfy Your Sweet Tooth",
+    img: "/blog-sm-8.jpg"
+  },
+]

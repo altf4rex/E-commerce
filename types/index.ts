@@ -72,3 +72,7 @@ export type PageProps = {
     limit?: number;
 }
 
+export type bestFarmersTypes = {
+    title: string;
+    img: string;
+}[]
