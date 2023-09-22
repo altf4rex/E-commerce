@@ -9,7 +9,7 @@ export default function TopHeader(){
                 <p className="text-primary">info@freshnesecom.com</p>
             </div>
             <div className="text-sans flex space-x-9 text-secondary text-sm">
-                <Link href="/">Blog</Link>
+                <Link href="/blogs">Blogs</Link>
                 <Link href="/">About Us</Link>
                 <Link href="/">Careers</Link>
             </div>

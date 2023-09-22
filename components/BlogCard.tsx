@@ -3,7 +3,7 @@ import Link from "next/link";
 
  const BlogCard = ({title, img}: {title: string, img: string}) => {
   return (
-    <Link href='/blog' className="w-[269px] mb-8">
+    <Link href='/blogs/blog' className="w-[269px] mb-8 mr-6  max-sm:mr-0 max-sm:mb-6">
         <Image 
         className="rounded-2xl"
             src={`${img}`}
