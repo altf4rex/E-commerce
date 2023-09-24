@@ -28,8 +28,21 @@ input[type="search"]::-webkit-search-results-decoration {
 .max-width {
   @apply max-w-[1260px] mx-auto;
 }
+
 .container{
   padding: 0 45px;
+}
+
+@media screen and (max-width: 1024px) {
+  .container{
+    padding: 0 25px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .container{
+    padding: 0 15px;
+  }
 }
 
 .text-sans{
@@ -42,6 +55,27 @@ input[type="search"]::-webkit-search-results-decoration {
 font-family: Poppins;
 font-style: normal;
 line-height: normal;
+}
+
+
+.scr{
+  scrollbar-width: thin;
+  scrollbar-color: #d2d1d1 #ffffff;
+}
+
+/* Chrome, Edge, and Safari */
+.scr::-webkit-scrollbar {
+  width: 2px;
+}
+
+.scr::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+.scr::-webkit-scrollbar-thumb {
+  background-color: #d2d1d1;
+  border-radius: 10px;
+  border: 3px solid #ffffff;
 }
 
 
@@ -203,4 +237,25 @@ box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
 
 .blur{
   filter: brightness(65%)
+}
+
+.MuiDrawer-content{
+  width: 600px;
+  margin: 0;
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+
+@media screen and (max-width: 768px) {
+  .MuiDrawer-content{
+    width: 450px;
+  }
+}
+
+@media screen and (max-width: 569px) {
+  .MuiDrawer-content{
+    width: 100%;
+  }
 }

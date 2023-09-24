@@ -14,9 +14,9 @@ export default function Cart() {
   const [open, setOpen] = React.useState(false);
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box  className="flex max-lg:mt-1 max-lg:mr-6 max-sm:mr-2 max-sm:ml-2">
       <button 
-      className="flex relative"
+      className="flex relative w-6 h-6"
       onClick={() => setOpen(true)}
       >
         <Image
@@ -26,8 +26,8 @@ export default function Cart() {
             height={24}
         />
         <div className="basket-circle">{cartCount ? cartCount : 0}</div>
-        </button>
-      <Drawer className="relative" open={open} anchor='right' onClose={() => setOpen(false)}>
+      </button>
+      <Drawer open={open} anchor='right' onClose={() => setOpen(false)}>
         <div className='m-4 flex justify-between'>
           <h1 className='text-pop text-2xl text-primary'>Shopping cart</h1>
           <Image
@@ -39,15 +39,17 @@ export default function Cart() {
             onClick={() => setOpen(false)}
           />
         </div>
+        <div>
         {
           cart?.map((p: Product) => (
             <CartProduct key={p.id} p={p}/>
           ))
         }
+        </div>
         {
         totalCartPrice ?
         (
-        <div className="absolute bottom-2 p-4 divide-y-2">
+        <div className="relative bottom-0 p-4 divide-y-2">
           <div className="pb-2">
             <h4 className='mb-2 text-pop text-sm text-primary'>Subtotal</h4>
             <span className='text-pop text-2xl text-primary'>

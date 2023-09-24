@@ -8,7 +8,7 @@ import toUrl from "@/utils/toUrl";
 const CartProduct = ({p}: {p: Product}) => {
 const { cart, addToCart, removeFromCart, productCounts } = useContext(CartContext);
   return (
-    <div className="flex mx-4 mb-6 mt-1 p-2 pl-6 bg-primaryBg border border-slate-200 rounded-xl">
+    <div className="flex h-[200px] mx-4 mb-6 mt-1 p-2 pl-6 bg-primaryBg border border-slate-200 rounded-xl">
         <div className="mr-5">
             <Image
           className="mb-4 mt-2 rounded-2xl bg-primaryBg"

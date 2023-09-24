@@ -20,16 +20,16 @@ export default async function Home() {
 
   return (
     <main>
-        <section className="flex my-16 ">
+        <section className="flex my-16 max-xl:flex-col">
           <LeftMenu {...LeftMenuCategory}/>
-          <div className="flex flex-wrap ">
+          <div className="scr flex overflow-auto">
             <RecepiesBanner {...BannerRecepies}/> 
             <RecepiesBanner {...BannerRecepies}/> 
           </div>
         </section>
-         <section className="flex my-16">
+         <section className="flex my-16 max-xl:flex-col">
           <LeftMenu {...BestSellingProducts}/>
-            <div className="flex flex-wrap ">
+            <div className="scr flex overflow-auto">
               {bestSellingProducts.map((p) => (
                 <ProductCard p={p}/>
               ))} 
@@ -37,9 +37,9 @@ export default async function Home() {
           <div>
           </div>
         </section>
-        <section className="flex my-16">
+        <section className="flex my-16 max-xl:flex-col">
           <LeftMenu {...BestFromFarmers}/>
-            <div className="flex flex-wrap ">
+            <div className="scr flex overflow-auto">
               {bestFarmersProducts.map((p) => (
                 <ProductCard p={p}/>
               ))} 

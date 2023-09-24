@@ -5,7 +5,7 @@ import Link from 'next/link';
   return (
     <Link href='/blogs/blog' className="flex relative max-xl:my-3">
         <Image 
-        className='relative z-0 blur rounded-2xl'
+        className='relative z-0 blur rounded-2xl object-cover'
         src={`${img}`}
           alt='Blog'
           width={530}

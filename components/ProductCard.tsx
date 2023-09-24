@@ -7,12 +7,10 @@ import toUrl from "@/utils/toUrl"
 const ProductCard = ({p}: {p: Product}) => {
   console.log(toUrl(p.img, p.id))
   return (
-    <div className="p-4 mb-4 mr-4 rounded-2xl border border-solid text-gray-400 h-min">
+    <div className="p-4 mb-4 ml-4 rounded-2xl border border-solid text-gray-400 h-min">
         <Link href={`/product/${p.slug}`}>
-          {/* <div className="w-[237px] h-[170px] bg-primaryBg mb-4">
-          </div> */}
           <Image
-          className="w-[237px] h-[170px] mb-4 bg-primaryBg rounded-xl object-fill"
+          className="w-[238px] h-[170px] mb-4 bg-primaryBg rounded-xl object-fill"
           src={toUrl(p.img, p.id)}
           alt='product'
           width={237}

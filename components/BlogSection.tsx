@@ -20,9 +20,9 @@ const BlogSection = () => {
 
   return (
     <section>
-        <div className="flex justify-between items-center mb-8">
-            <p className="text-pop text-xl text-primary">Read our Blog posts</p>
-            <Link href="/blogs" className="flex p-3 text-pop text-xl text-primary hover:bg-primaryBg rounded-xl">
+        <div className="flex justify-between items-center mb-8 max-sm:flex-col">
+            <p className="text-pop text-xl text-primary max-sm:text-md">Read our Blog posts</p>
+            <Link href="/blogs" className="flex p-3 text-pop text-xl text-primary hover:bg-primaryBg rounded-xl max-sm:text-base">
                 Go to Blogs
                 <Image 
                     className="ml-2"
@@ -33,7 +33,7 @@ const BlogSection = () => {
                 />  
             </Link>
         </div>
-        <div className="flex justify-between">
+        <div className="flex justify-between max-sm:flex-wrap max-sm:justify-around">
           <BlogLgCard title={title} img={img}/>
           <BlogCard title={smBlog[0].title} img={smBlog[0].img}/> 
           <BlogCard title={smBlog[1].title} img={smBlog[1].img}/> 
