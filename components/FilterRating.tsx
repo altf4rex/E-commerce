@@ -28,7 +28,7 @@ const FilterRating = () => {
   const ratings = ["5", "4", "3", "2", "1"];
 
   return (
-    <div className="mb-12">
+    <div className="mb-12 max-xl:mb-6">
       <h3 className='text-pop text-xl text-primary mb-3'>Rating</h3>
       <FormGroup>
         {ratings.map((ratingValue) => (

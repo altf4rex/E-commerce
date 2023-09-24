@@ -3,7 +3,7 @@ import {Product, ProductArray} from "@/types";
 import ProductCard from "@/components/ProductCard";
 import Navigation from "@/components/Navigation";
 import Filter from "@/components/Filter";
-
+import ToglleFilter from "@/components/ToglleFilter";
   export default async function Page(props){
     let category;
     props.params.category !== 'search' ? {category} = props.params : category = 'undefined';
@@ -17,9 +17,14 @@ import Filter from "@/components/Filter";
     return (
       <>
         <Navigation />
-         <main className="flex justify-start"> 
-         <Filter products={products} category={category}/>
-            <div className="flex flex-wrap justify-start max-w-[869px]">
+         <main className="flex justify-start max-xl:flex-col">
+         <div className="hidden max-xl:flex">
+            <ToglleFilter products={products} category={category}/> 
+          </div>
+         <div className="max-xl:hidden">
+            <Filter products={products} category={category}/>
+         </div>
+            <div className="flex flex-wrap justify-start max-w-[869px] max-xl:justify-center">
             {products.map((p: Product) => (
               <ProductCard p={p} />
             ))}

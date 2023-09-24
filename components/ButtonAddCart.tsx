@@ -13,7 +13,7 @@ const { cart, addToCart, removeFromCart, productCounts } = useContext(CartContex
         {!!productCounts[product.id] ? <CountProduct product={product}/> :
             <Button 
                 color="success"
-                className='hover:bg-secondaryHover'
+                className='hover:bg-secondaryHover max-sm:p-0  max-sm:pr-2 '
                 startDecorator={<Add />} 
                 onClick={() => addToCart(product)}
             >

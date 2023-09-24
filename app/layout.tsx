@@ -4,6 +4,8 @@ import type { Metadata } from 'next'
 import CategoryMenu from '@/components/CategoryMenu'
 import Footer from '@/components/Footer'
 import CartProvider from '@/components/cart-provider.tsx'
+import Link from 'next/link'
+import Image from 'next/image'
 
 export const metadata: Metadata = {
   title: 'E-commerce',
@@ -20,7 +22,19 @@ export default function RootLayout({
       <body className="max-width container shadow">
       <CartProvider>
         <Header /> 
-        <CategoryMenu />
+        <div className="hidden max-xl:flex">
+          <Link href={`/products/`} className="text-pop flex mt-6 px-4 py-3 rounded-3xl text-lg font-bold mb-2 bg-white max-xl:hover:bg-primaryBg ">
+          All products
+          <Image 
+            className="ml-2"
+            src='/green-left-arrow.svg'
+            alt='arrow'
+            width={7}
+            height={3}
+          /> 
+          </Link>
+          </div>
+          <CategoryMenu /> 
         {children}
       </CartProvider>
       <Footer />

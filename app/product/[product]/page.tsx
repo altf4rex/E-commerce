@@ -18,20 +18,20 @@ import toUrl from "@/utils/toUrl";
         <Navigation />
         <main className="flex flex-wrap">
           <Image
-          className="w-[500px] h-[350px] rounded-2xl rounded-2xl object-contain"
+          className="w-[500px] h-[100%] rounded-2xl object-contain"
           src={toUrl(p.img, p.id)}
           alt='product'
           width={569}
           height={350}
           />
           <div>
-          <div className="ml-8 mt-2 max-w-[550px]">
-            <h1 className="text-pop text-3xl text-primary">{p.name}</h1>
-            <Rating name="read-only" value={Number(`${p.rating}`)} readOnly />
-            <p className="my-10 text-sans text-lg text-primary">{p.fullDescription}</p>
-            <div className="flex justify-between flex-wrap">
+          <div className="ml-8 mt-2 max-w-[550px] max-xl:ml-2">
+            <h1 className="text-pop text-3xl text-primary max-xl:text-xl max-xl:mt-6">{p.name}</h1>
+            <Rating name="read-only" value={Number(`${p.rating}`)} readOnly className="max-xl:mt-2"/>
+            <p className="my-10 text-sans text-lg text-primary max-xl:my-5 max-sm:my-2 max-sm:text-base">{p.fullDescription}</p>
+            <div className="flex justify-between flex-wrap max-sm:mt-4">
               <div className="flex mr-2">
-                <div className="flex flex-col mr-10 text-sans text-base text-gray-400">
+                <div className="flex flex-col mr-10 text-sans text-base text-gray-400 max-sm:mr-9 max-sm:mb-4">
                   <p className="mb-2">SKU:</p>
                   <p className="mb-2">Category:</p>
                   <p className="mb-2">Stock:</p>
@@ -45,7 +45,7 @@ import toUrl from "@/utils/toUrl";
                 </div>
               </div>
               <div className="flex">
-                <div className="flex flex-col mr-10 text-sans text-base text-gray-400">
+                <div className="flex flex-col mr-10 text-sans text-base text-gray-400 max-sm:mr-2">
                   <p className="mb-2">Freshness:</p>
                   <p className="mb-2">Buy by:</p>
                   <p className="mb-2">Delivery:</p>
@@ -60,10 +60,10 @@ import toUrl from "@/utils/toUrl";
               </div>
             </div>
           </div>
-          <div className="flex justify-between items-center ml-8 mt-8 px-16 py-4 border rounded-2xl border-primaryBg">
+          <div className="flex justify-between items-center ml-8 mt-8 px-16 py-4 border rounded-2xl border-primaryBg max-xl:px-6 max-xl:ml-2 max-sm:ml-0 max-sm:mt-2 max-sm:px-4 max-sm:px-2">
             <div>
-              <p className="text-pop text-2xl text-secondary">{p.price}USD</p>
-              {p.discountPrice !== p.price && <p className="text-pop text-base line-through text-primaryLight">{p.discountPrice}USD</p>}
+              <p className="text-pop text-2xl text-secondary max-xl:text-xl">{p.price}USD</p>
+              {p.discountPrice !== p.price && <p className="text-pop text-base line-through text-primaryLight max-xl:text-sm">{p.discountPrice}USD</p>}
             </div>
             <ButtonAddCart product={p}/>
           </div>

@@ -20,7 +20,7 @@ const BlogSection = () => {
 
   return (
     <section>
-        <div className="flex justify-between items-center mb-8 max-sm:flex-col">
+        <div className="flex justify-between items-center mb-8 max-sm:flex-col max-xl:mt-16">
             <p className="text-pop text-xl text-primary max-sm:text-md">Read our Blog posts</p>
             <Link href="/blogs" className="flex p-3 text-pop text-xl text-primary hover:bg-primaryBg rounded-xl max-sm:text-base">
                 Go to Blogs

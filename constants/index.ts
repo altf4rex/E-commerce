@@ -30,7 +30,7 @@ export const categories = [
 ];
   
 export const  LeftMenuCategory = {
-  header: 'Category menu',
+  header: 'All categories',
   array: [
     "Bakery",
     "Fruit and vegetables",
@@ -45,11 +45,12 @@ export const  LeftMenuCategory = {
     "drinks",
     "kitchen",
   ],
-  button: "More categories"
+  button: "More categories",
+  link: "search?search="
 };
 
 export const  BestSellingProducts = {
-  header: 'Best selling products',
+  header: 'Our baking',
   array: [
     "Kitchen",
     "Bakery",
@@ -65,7 +66,8 @@ export const  BestSellingProducts = {
     "pharmacy",
     "drinks",
   ],
-  button: "More products"
+  button: "More products",
+  link: "/bakery"
 };
 
 export const  BestFromFarmers = {
@@ -84,7 +86,8 @@ export const  BestFromFarmers = {
     "meat-fish",
     "meat-fish"
   ],
-  button: "More products"
+  button: "More products",
+  link: "/fruit-vegetables"
 };
 
 export const BannerRecepies = {

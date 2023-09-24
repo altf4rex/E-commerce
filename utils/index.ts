@@ -20,7 +20,7 @@ export async function getProduct({
 }) {
   try {
     const filters = [];
-
+    
     if (search && search !== "undefined") {
       const searchFilter = `name ~ "${search}" || category ~ "${search}" || subcategory ~ "${search}"`;
       filters.push(`(${searchFilter})`);

@@ -72,7 +72,7 @@ const FilterPrice = ({ products, category }: { products: Product[]; category: st
   };
 
   return (
-    <div className="mb-12">
+    <div className="mb-12 max-xl:mb-6">
       <h3 className="text-pop text-xl text-primary mb-7">Price</h3>
       <Slider
         max={maxPrice}

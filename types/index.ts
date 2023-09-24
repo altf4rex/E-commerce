@@ -3,6 +3,7 @@ export interface LeftMenuProps{
     array: string[];
     slug: string[];
     button: string;
+    link: string,
 }
 
 export interface RecepiesBanner{

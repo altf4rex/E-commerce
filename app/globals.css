@@ -259,3 +259,17 @@ box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
     width: 100%;
   }
 }
+
+@media screen and (max-width: 640px) {
+  .MuiBox-root{
+    padding: 0;
+  }
+  .MuiTabList-root{
+    width: 100%;
+  }
+  .MuiTabList-root
+  .MuiTab-root {
+   padding:0 6px; 
+  }
+  
+}

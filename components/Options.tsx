@@ -50,10 +50,10 @@ export default function TabsPageExample({origins, recipe, rating}: {origins: str
             },
           }}
         >
-          <Tab indicatorInset>
+          <Tab indicatorInset className="max-sm:text-sm">
           Description{' '}
           </Tab>
-          <Tab indicatorInset>
+          <Tab indicatorInset className="max-sm:text-sm">
           Reviews{' '}
             <Chip
               size="sm"
@@ -64,7 +64,7 @@ export default function TabsPageExample({origins, recipe, rating}: {origins: str
               2
             </Chip>
           </Tab>
-          <Tab indicatorInset>
+          <Tab indicatorInset className="max-sm:text-sm">
             Questions{' '}
             <Chip
               size="sm"

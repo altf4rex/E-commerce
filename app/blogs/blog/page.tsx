@@ -21,11 +21,11 @@ const page = () => {
         </div>
         </div>
         <div className="pt-8 max-w-[600px] mx-auto">
-          <p className='mb-10 text-sans text-primary text-lg'>{culinaryJourney.introduction}</p>
+          <p className='mb-10 text-sans text-primary text-lg max-sm:text-sm max-sm:mb-8 max-sm:tracking-wide'>{culinaryJourney.introduction}</p>
           {culinaryJourney.sections.map((s) => 
             <>
               <h3 className='mb-3 text-pop text-primary text-xl'>{s.title}</h3>
-              <p className='mb-10 text-sans text-primary text-lg'>{s.content}</p>
+              <p className='mb-10 text-sans text-primary text-lg max-sm:text-sm max-sm:mb-8 max-sm:tracking-wide'>{s.content}</p>
             </>
             )}
         </div>

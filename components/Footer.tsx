@@ -4,9 +4,9 @@ import Link from "next/link"
 const Footer = () => {
   return (
     <footer className="py-16">
-        <div className="flex justify-between">
+        <div className="flex justify-between max-md:flex-col">
         {footerLinks.map((m) => (
-            <div className="flex flex-col">
+            <div className="flex flex-col max-md:mb-8 max-md:items-center ">
                 <h3 className="text-pop text-lg text-primary">{m.header}</h3>
                 {m.array.map((a) => (
                     <Link href="/" className="text-sans mt-4 text-sm text-secondary">

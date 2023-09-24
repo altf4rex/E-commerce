@@ -39,7 +39,7 @@ const FilterCategory = ({products, category}: {products?: ProductArray, category
   }, [category]);
 
   return (
-    <div className="mb-12">
+    <div className="mb-12 max-xl:mb-6">
       <h3 className="text-pop mb-4 text-lg text-primary">Categories</h3>
       {Object.keys(subcategoryCount).map((key) => (
         <div 
