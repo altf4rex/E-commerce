@@ -10,7 +10,7 @@ import CartProduct from "./CartProduct";
 import Link from "next/link";
  
 export default function Cart() {
-  const { cart, addToCart, removeFromCart, productCounts, cartCount, totalCartPrice } = useContext(CartContext);
+  const { cart, addToCart, removeFromCart, productCounts, cartCount, totalCartPrice, reset} = useContext(CartContext);
   const [open, setOpen] = React.useState(false);
 
   return (
@@ -29,7 +29,7 @@ export default function Cart() {
       </button>
       <Drawer open={open} anchor='right' onClose={() => setOpen(false)}>
         <div className='m-4 flex justify-between'>
-          <h1 className='text-pop text-2xl text-primary max-sm:text-xl' >Shopping cart</h1>
+          <h1 className='text-pop text-2xl text-primary max-sm:text-xl'>Shopping cart</h1>
           <Image
             className='hover:bg-slate-200'
             src="/close.svg"
@@ -58,7 +58,12 @@ export default function Cart() {
           </div>
           <div className="flex items-center pt-4 ">
             <button onClick={() => setOpen(false)} className='py-3 px-4 mb-2 mr-8 text-pop text-base text-primary hover:bg-slate-200 rounded-2xl max-sm:mr-6 max-sm:text-sm'>Continue shopping</button>
-            <Link href="/checkout" className='py-3 px-4 text-pop text-base text-white bg-secondary border border-secondaryBgDark rounded-2xl hover:bg-secondaryHover max-sm:text-sm'>Go to Checkout</Link>
+            <Link href="/success" onClick={
+              () => {
+                setOpen(false)
+                reset()
+              }} 
+              className='py-3 px-4 text-pop text-base text-white bg-secondary border border-secondaryBgDark rounded-2xl hover:bg-secondaryHover max-sm:text-sm'>Go to Checkout</Link>
           </div>
         </div>
         ) : ""

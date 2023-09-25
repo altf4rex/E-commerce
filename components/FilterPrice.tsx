@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import * as React from 'react';
 import {useEffect, useState} from 'react';
 
-const minDistance = 1;
+let minDistance = 1;
 
 const FilterPrice = ({ products, category }: { products: Product[]; category: string }) => {
   const router = useRouter();
@@ -34,6 +34,15 @@ const FilterPrice = ({ products, category }: { products: Product[]; category: st
     },
     { min: Number.MAX_VALUE, max: Number.MIN_VALUE }
   );
+
+  let step = 1;
+
+  if((initialPriceRange.max - initialPriceRange.min) < 10) {
+    step = 0.1;
+    minDistance = 0.5;
+  }
+
+
 
   const [value1, setValue1] = React.useState<number[]>([initialPriceRange.min, initialPriceRange.max]);
   const [minPrice, setMinPrice] = useState<number>(initialPriceRange.min);
@@ -75,6 +84,7 @@ const FilterPrice = ({ products, category }: { products: Product[]; category: st
     <div className="mb-12 max-xl:mb-6">
       <h3 className="text-pop text-xl text-primary mb-7">Price</h3>
       <Slider
+      step={step}
         max={maxPrice}
         min={minPrice}
         value={value1}
@@ -82,7 +92,7 @@ const FilterPrice = ({ products, category }: { products: Product[]; category: st
         valueLabelDisplay="auto"
         disableSwap
         color="success"
-        onMouseUp={() => handlePriceChange(value1[0], value1[1])}
+        onMouseLeave = {() => handlePriceChange(value1[0], value1[1])}
       />
       <div className="flex justify-between mt-7 text-sans text-lg">
         <input

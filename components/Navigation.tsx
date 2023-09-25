@@ -5,19 +5,13 @@ import { usePathname } from 'next/navigation'
 const Navigation = () => {
 
     const pathname = usePathname();
+    const path = pathname.split("/").slice(-2);
 
     return (
         <nav className='flex py-4 text-sans text-sm text-gray-400'>
-            <Link href="/" >Homepage</Link>
-            {pathname.split("/").map((p, index, pathParts) => (
-                <div key={p}>
-                    <Link href={pathParts.slice(0, index + 1).join("/")} 
-                    className={(index === pathParts.length - 1)? "text-primary mx-2" : " text-gray-400 mx-2"}>
-                        {p}
-                    </Link>
-                    {index < pathParts.length - 1 && " / "}
-                </div>
-            ))}
+            <Link href="/">Homepage</Link>
+            <div className='mx-4'>/</div> 
+            <Link href={`${path[1]}`}>{path[1]}</Link>
         </nav>
     )
 }

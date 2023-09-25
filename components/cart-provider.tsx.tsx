@@ -9,7 +9,8 @@ interface CartContextType {
   addToCart: (product: Product) => void;
   removeFromCart: (productId: string) => void;
   reduceCount: (productId: string) => void;
-  productCounts: { [productId: number]: number }; // Включаем productCounts
+  reset: () => void;
+  productCounts: { [productId: number]: number };
 }
 
 export const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -76,6 +77,11 @@ export default function CartProvider({children}: {children: React.ReactNode}) {
     return Number(total.toFixed(2)); 
   };
 
+  const reset = () => {
+    setCart([]);
+    setProductCounts({});
+  } 
+
   const cartCount: number = count();
   const totalCartPrice: number = calculateTotal();
   return (
@@ -88,6 +94,7 @@ export default function CartProvider({children}: {children: React.ReactNode}) {
         reduceCount,
         cartCount,
         totalCartPrice,
+        reset, 
       }}
     >
       {children}

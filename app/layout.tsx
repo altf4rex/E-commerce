@@ -1,3 +1,4 @@
+
 import Header from '@/components/Header'
 import './globals.css'
 import type { Metadata } from 'next'
@@ -19,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="bg-primaryBg">
-      <body className="max-width container shadow">
+      <body className="max-width container shadow relative">
       <CartProvider>
         <Header /> 
         <div className="hidden max-xl:flex">
