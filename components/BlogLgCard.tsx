@@ -3,9 +3,9 @@ import Link from 'next/link';
 
  const BlogLgCard = ({title, img}: {title: string, img: string}) => {
   return (
-    <Link href='/blogs/blog' className="flex relative max-xl:my-3 hover:brightness-75">
+    <Link href='/blogs/blog' className="flex relative max-xl:my-3">
         <Image 
-        className='relative z-0 blur rounded-2xl object-cover'
+        className='relative z-0 blur rounded-2xl object-cover hover:scale-[1.03] duration-300'
         src={`${img}`}
           alt='Blog'
           width={530}

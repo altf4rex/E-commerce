@@ -13,7 +13,7 @@ const ToglleFilter = ({products, category}: {products?: ProductArray, category?:
     const [open, setOpen] = React.useState(false);
   return (
     <React.Fragment>
-    <IconButton variant="outlined" className="rounded-2xl py-2 px-4 m-2 ml-4" color="neutral" onClick={() => setOpen(true)}>
+    <IconButton variant="outlined" className="rounded-2xl py-2 px-4 m-2 ml-4 mb-4 max-xl:px-10 " color="neutral" onClick={() => setOpen(true)}>
       <TuneIcon />
       <p className="text-pop text-base ml-2">filter</p>
     </IconButton>
@@ -24,22 +24,20 @@ const ToglleFilter = ({products, category}: {products?: ProductArray, category?:
           alignItems: 'center',
           gap: 0.5,
           ml: 'auto',
-          mt: 1,
-          mr: 1,
+          mt: 2,
+          mr: 2,
         }}
       >
-        <Typography
-          component="label"
-          htmlFor="close-icon"
-          fontSize="sm"
-          fontWeight="lg"
-          sx={{ cursor: 'pointer' }}
-        >
-          close
-        </Typography>
-        <ModalClose id="close-icon" sx={{ position: 'initial' }} />
+        <ModalClose id="close-icon" className="closeSvg" sx={{ position: 'initial'}} />
       </Box>
       <Filter products={products} category={category}/>
+      
+      <button onClick={
+              () => {setOpen(false)}} 
+              className='py-5 px-4  text-pop text-xl text-white bg-secondary border-secondaryBgDark hover:bg-secondaryHover max-sm:text-lg'>
+                Apply
+            </button>
+
     </Drawer>
   </React.Fragment>
   )

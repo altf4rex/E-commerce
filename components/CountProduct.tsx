@@ -17,8 +17,8 @@ const CountProduct = ({product}: {product: Product} ) => {
           display: 'flex',
           alignItems: 'center',
           gap: 2,
-          pt: 2,
-          mb: 2,
+          pt: 1,
+          mr: 2.4,
         }}
       >
         <IconButton

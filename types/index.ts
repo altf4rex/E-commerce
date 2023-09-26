@@ -29,8 +29,9 @@ export interface ProductCardProps{
 export interface Product {
     id: string;
     collectionId: string;
-    collectionName: string,
-    created: string,
+    collectionName: string;
+    created: string;
+    updated?: string;
     name: string;
     slug: string;
     description?: string;
@@ -39,7 +40,6 @@ export interface Product {
     fullDescription?: string;
     discountPrice?: number;
     price: number;
-    image?: string;
     freshness?: string;
     farm?: string;
     deliveryArea?: string;

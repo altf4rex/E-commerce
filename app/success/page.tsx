@@ -10,7 +10,7 @@ const Succcess = () => {
       </svg>
       <h1 className="mt-4 tex-pop text-4xl text-secondary">Success</h1>
       <p className="mt-3 tex-sans text-xl text-primary text-center">Thank yoy for your purchase!</p>
-      <Link href='/' className="mt-4 py-2 px-6 text-center bg-secondary tex-sans text-xl text-white rounded-2xl hover:bg-secondaryHover">Go back to home</Link>
+      <Link href='/' className="mt-4 py-2 px-6 text-center bg-secondary tex-sans text-base text-white rounded-xl hover:bg-secondaryHover">Go back to home</Link>
       </div>
     </div>
   )

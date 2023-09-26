@@ -8,7 +8,7 @@ const Question = () => {
                 <p className='mr-3 text-sans text-base text-gray-400 max-sm:text-sm'>September 12th</p>
             </div>
         </div>
-        <p className='mt-5 text-sans text-base text-primary max-sm:text-sm'>Highly recommended?</p>
+        <p className='mt-2 text-sans text-base text-primary max-sm:text-sm'>Highly recommended?</p>
     </div>
   )
 }

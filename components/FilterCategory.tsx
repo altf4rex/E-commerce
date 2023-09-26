@@ -23,7 +23,7 @@ const FilterCategory = ({category}: {category?: string}) => {
       <h3 className="text-pop mb-4 text-lg text-primary">Categories</h3>
       {subcategory[category].map((key) => (
           <p
-          className={`mb-1 p-2 w-max cursor-pointer text-sans text-sm text-primary rounded-lg hover:bg-gray-200 ${currentCategory === key.toLocaleLowerCase() ? 'bg-gray-200' : ''}`}
+          className={`mb-1 p-2 w-max cursor-pointer text-sans text-lg text-primary rounded-lg hover:bg-gray-200 ${currentCategory === key.toLocaleLowerCase() ? 'bg-gray-200' : ''}`}
           onClick={() => handleCategoryClick(key)}
           key={key}
           >

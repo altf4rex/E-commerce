@@ -24,13 +24,14 @@ export default function HeaderSearc() {
       </Link>
       <Search />
       <div className="flex">
-      <Link href="/" className="mr-10 max-lg:hidden hover:bg-primaryHover rounded-full p-1">
+      <Link href="/" className="mr-10 max-lg:hidden hover:bg-primaryHover rounded-full p-3">
           <Image src="/user.svg" alt="user" width={24} height={24} />
         </Link>
       <Cart />
       <div className="hidden max-lg:block">
         <React.Fragment>
           <IconButton
+          className="mt-3"
             variant="outlined"
             color="neutral"
             onClick={() => setOpen(true)}

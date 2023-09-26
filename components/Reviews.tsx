@@ -9,7 +9,7 @@ const Reviews = ({rating}: {rating:string}) => {
                 <Rating name="read-only" value={Number(`${rating}`)} readOnly className='max-sm:text-base'/>
             </div>
         </div>
-        <p className='mt-5 text-sans text-base text-primary max-sm:text-sm'>Highly recommended!</p>
+        <p className='mt-2 text-sans text-base text-primary max-sm:text-sm'>Highly recommended!</p>
     </div>
   )
 }

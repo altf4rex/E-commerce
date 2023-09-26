@@ -1,4 +1,3 @@
-import {PageProps} from "@/types"
 import PocketBase from 'pocketbase';
 
 const pb = new PocketBase('http://127.0.0.1:8090');
@@ -57,6 +56,7 @@ export async function getProduct({
     });
   } catch (error) {
     console.error(`Произошла ошибка:`, error);
+    return []
   }
 }
 
@@ -68,5 +68,6 @@ export async function part(prop: string) {
       }))
     } catch (error) {
       console.error(`Произошла ошибка:`, error);
+      return []
     }
 }

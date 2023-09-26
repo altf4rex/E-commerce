@@ -18,7 +18,7 @@ import ToglleFilter from "@/components/ToglleFilter";
       <>
         <Navigation />
          <main className="flex justify-start max-xl:flex-col">
-         <div className="hidden max-xl:flex">
+         <div className="hidden max-xl:flex max-xl:justify-center ">
             <ToglleFilter products={products} category={category}/> 
           </div>
          <div className="max-xl:hidden">

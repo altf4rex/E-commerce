@@ -6,7 +6,7 @@ import {useContext} from "react"
 import CountProduct from "./CountProduct";
 import toUrl from "@/utils/toUrl";
 const CartProduct = ({p}: {p: Product}) => {
-const { cart, addToCart, removeFromCart, productCounts } = useContext(CartContext);
+const { removeFromCart } = useContext(CartContext);
   return (
     <div className="flex h-[200px] mx-4 mb-6 mt-1 p-2 pl-6 bg-primaryBg border border-slate-200 rounded-xl max-sm:mx-2 max-sm:mb-3 max-sm:pl-3">
         <div className="mr-5 max-sm:mr-3">

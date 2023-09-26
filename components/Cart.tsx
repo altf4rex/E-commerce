@@ -10,13 +10,13 @@ import CartProduct from "./CartProduct";
 import Link from "next/link";
  
 export default function Cart() {
-  const { cart, addToCart, removeFromCart, productCounts, cartCount, totalCartPrice, reset} = useContext(CartContext);
+  const { cart, cartCount, totalCartPrice, reset} = useContext(CartContext);
   const [open, setOpen] = React.useState(false);
 
   return (
     <Box  className="flex max-lg:mt-1 max-lg:mr-6 max-sm:mr-2 max-sm:ml-2">
       <button 
-      className="flex relative w-8 h-8 hover:bg-primaryHover rounded-full p-1"
+      className="flex relative w-12 h-12 hover:bg-primaryHover rounded-full p-3"
       onClick={() => setOpen(true)}
       >
         <Image

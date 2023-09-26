@@ -1,21 +1,27 @@
 import LeftMenu from "@/components/LeftMenu";
-import {LeftMenuCategory, BestSellingProducts, BestFromFarmers, BannerRecepies, categories} from "@/constants";
+import {LeftMenuCategory, BestSellingProducts, BestFromFarmers, BannerRecepies} from "@/constants";
 import RecepiesBanner from "@/components/RecepiesBanner";
 import {part} from "@/utils"
 import ProductCard from "@/components/ProductCard";
-import {Product, ProductArray} from "@/types"
 import BlogSection from "@/components/BlogSection";
-import {bestSelling, bestFarmers} from "@/constants";
-import CategoryMenu from "@/components/CategoryMenu";
+import { Product } from "@/types";
 
-
+type ProductObj = 
+  {
+    page: number;
+    perPage: number;
+    totalItems: number;
+    totalPages: number;
+    items: Product[]
+}
 
 export default async function Home() {
 
-  const bestSelling = await part("bakery");
+  const bestSelling:ProductObj = await part("bakery")
+  console.log(bestSelling)
   const bestSellingProducts = bestSelling.items; 
 
-  const bestFarmers = await part("fruit-vegetables");
+  const bestFarmers:ProductObj = await part("fruit-vegetables");
   const bestFarmersProducts = bestFarmers.items; 
 
 
