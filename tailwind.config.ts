@@ -12,6 +12,7 @@ const config: Config = {
         primary: "#151515",
         primaryLight: "#575757",
         primaryBg: "#F9F9F9",
+        primaryHover: "#E8F0E2",
         secondary: "#6A983C",
         secondaryHover: "#518919",
         secondaryBgLight: "#F4F8EC",
@@ -23,6 +24,7 @@ const config: Config = {
 }
 
 // hover // hover:bg-slate-200
+// hover // hover:bg-gray-200
 // borde // text-gray-500
 // text //  text-gray-400
 export default config

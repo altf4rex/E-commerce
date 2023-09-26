@@ -50,10 +50,10 @@ export default function TabsPageExample({origins, recipe, rating}: {origins: str
             },
           }}
         >
-          <Tab indicatorInset className="max-sm:text-sm">
+          <Tab indicatorInset className="max-sm:text-sm hover:text-primaryLight">
           Description{' '}
           </Tab>
-          <Tab indicatorInset className="max-sm:text-sm">
+          <Tab indicatorInset className="max-sm:text-sm hover:text-primaryLight">
           Reviews{' '}
             <Chip
               size="sm"
@@ -64,7 +64,7 @@ export default function TabsPageExample({origins, recipe, rating}: {origins: str
               2
             </Chip>
           </Tab>
-          <Tab indicatorInset className="max-sm:text-sm">
+          <Tab indicatorInset className="max-sm:text-sm hover:text-primaryLight">
             Questions{' '}
             <Chip
               size="sm"

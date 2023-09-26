@@ -3,11 +3,13 @@ import { Product } from '@/types';
 import Slider from '@mui/material/Slider';
 import { useRouter, useSearchParams } from 'next/navigation'
 import * as React from 'react';
-import {useEffect, useState} from 'react';
+import  {useState} from 'react';
+import { minmaxPrice } from '@/constants';
 
-let minDistance = 1;
+const FilterPrice = ({category}: {category?: string }) => {
+  let minDistance = 1;
+  let step = 1;
 
-const FilterPrice = ({ products, category }: { products: Product[]; category: string }) => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -17,40 +19,20 @@ const FilterPrice = ({ products, category }: { products: Product[]; category: st
     params.set('price', priceRange);
     router.push(`?${params.toString()}`, { scroll: false });
   };
-
-  // Вычисляем minPrice и maxPrice один раз при загрузке компонента
-  const initialPriceRange = products.reduce<{ min: number; max: number }>(
-    (acc, product) => {
-      const price = parseFloat(product.price);
-      if (!isNaN(price)) {
-        if (price < acc.min) {
-          acc.min = price;
-        }
-        if (price > acc.max) {
-          acc.max = price;
-        }
-      }
-      return acc;
-    },
-    { min: Number.MAX_VALUE, max: Number.MIN_VALUE }
-  );
-
-  let step = 1;
+  
+ const initialPriceRange = {
+  min: parseFloat(searchParams.get("price")?.split("-")[0]) || minmaxPrice[category][0],
+  max: parseFloat(searchParams.get("price")?.split("-")[1]) || minmaxPrice[category][1],
+};
 
   if((initialPriceRange.max - initialPriceRange.min) < 10) {
     step = 0.1;
     minDistance = 0.5;
   }
 
-
-
   const [value1, setValue1] = React.useState<number[]>([initialPriceRange.min, initialPriceRange.max]);
   const [minPrice, setMinPrice] = useState<number>(initialPriceRange.min);
   const [maxPrice, setMaxPrice] = useState<number>(initialPriceRange.max);
-
-  useEffect(() => {
-    setValue1([minPrice, maxPrice]);
-  }, [category]);
 
   const handleChange1 = (
     event: Event,
@@ -85,8 +67,8 @@ const FilterPrice = ({ products, category }: { products: Product[]; category: st
       <h3 className="text-pop text-xl text-primary mb-7">Price</h3>
       <Slider
       step={step}
-        max={maxPrice}
-        min={minPrice}
+        min={minmaxPrice[category][0]}
+        max={minmaxPrice[category][1]}
         value={value1}
         onChange={handleChange1}
         valueLabelDisplay="auto"

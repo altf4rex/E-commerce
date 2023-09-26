@@ -19,12 +19,12 @@ export default function HeaderSearc() {
   return (
     <nav className="flex justify-between items-center py-10 max-lg:py-4 max-sm:py-2">
       <Link href="/">
-        <p className="text-pop text-primary text-3xl max-lg:text-xl max-sm:hidden whitespace-nowrap">E-commerce</p>
+        <p className="text-pop text-primary text-3xl max-lg:text-xl max-sm:hidden whitespace-nowrap hover:text-primaryLight">E-commerce</p>
         <p className="hidden text-pop text-primary text-xl max-sm:block">Ecom</p>
       </Link>
       <Search />
       <div className="flex">
-      <Link href="/" className="mr-10 max-lg:hidden">
+      <Link href="/" className="mr-10 max-lg:hidden hover:bg-primaryHover rounded-full p-1">
           <Image src="/user.svg" alt="user" width={24} height={24} />
         </Link>
       <Cart />

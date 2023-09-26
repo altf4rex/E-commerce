@@ -8,7 +8,7 @@ const ProductCard = ({p}: {p: Product}) => {
   console.log(toUrl(p.img, p.id))
   return (
     <div className="p-4 mb-4 ml-4 rounded-2xl border border-solid text-gray-400 h-min">
-        <Link href={`/product/${p.slug}`}>
+        <Link href={`/product/${p.slug}`} className="hover:brightness-75">
           <Image
           className="w-[238px] h-[170px] mb-4 bg-primaryBg rounded-xl object-fill"
           src={toUrl(p.img, p.id)}
@@ -19,7 +19,7 @@ const ProductCard = ({p}: {p: Product}) => {
         </Link>
         <div className="w-[237px]">
         <Link href={`/product/${p.slug}`}>
-          <h3 className="text-pop mb-1 text-base text-primary">{p.name}</h3> 
+          <h3 className="text-pop mb-1 text-base text-primary hover:text-primaryLight">{p.name}</h3> 
         </Link>
           <p className="mb-2 text-sans text-xs text-primaryLight">{p.description}</p>
           <Rating name="read-only" size="small" value={Number(`${p.rating}`)} readOnly />
@@ -29,7 +29,6 @@ const ProductCard = ({p}: {p: Product}) => {
               {p.discountPrice !== p.price && <p className="text-pop text-base line-through text-primaryLight">{p.discountPrice}USD</p>}
             </div>
             <ButtonAddCart product={p}/>
-            {/* <button className="text-pop px-3 py-3 text-white rounded-2xl bg-secondary border border-solid border-secondaryBgDark">Add to Cart</button> */}
          </div> 
         </div>
         

@@ -9,11 +9,11 @@ export default function LeftMenu({header, array, slug, button, link}: LeftMenuPr
         <div className="flex flex-col max-xl:hidden">
         {
             slug.map((p, index) => (
-                <Link href={`/products/${p}`} className="text-sans underline mb-3 text-secondary text-sm">{array[index]}</Link>
+                <Link href={`/products/${p}`} className="text-sans underline mb-3 text-secondary text-sm hover:text-primaryLight">{array[index]}</Link>
             ))
         }
         </div>
-        <Link href={`/products/${link}`} className="text-pop flex mt-6 px-4 py-3 rounded-3xl text-lg font-bold bg-primaryBg max-xl:hidden ">
+        <Link href={`/products/${link}`} className="text-pop flex mt-6 px-4 py-3 rounded-3xl text-lg font-bold bg-primaryBg max-xl:hidden hover:bg-gray-200">
           {button}
           <Image 
             className="ml-2"
@@ -23,7 +23,7 @@ export default function LeftMenu({header, array, slug, button, link}: LeftMenuPr
             height={3}
           /> 
           </Link>
-        <Link href={`/products/${link}`} className="hidden text-pop flex mt-6 px-4 py-3 rounded-3xl text-lg font-bold max-xl:flex bg-primaryBg max-xl:mb-2 max-xl:text-lg  max-xl:bg-white max-xl:hover:bg-primaryBg ">
+        <Link href={`/products/${link}`} className="hidden text-pop flex mt-6 px-4 py-3 rounded-3xl text-lg font-bold max-xl:flex bg-primaryBg max-xl:mb-2 max-xl:text-lg  max-xl:bg-white max-xl:hover:bg-primaryBg">
           {header}
           <Image 
             className="ml-2"

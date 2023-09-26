@@ -20,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="bg-primaryBg">
-      <body className="max-width container shadow relative">
+      <body className="max-width container shadow">
       <CartProvider>
         <Header /> 
         <div className="hidden max-xl:flex">

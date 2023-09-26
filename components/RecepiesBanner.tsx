@@ -8,7 +8,7 @@ export default function RecepiesBanner({baner, header, link}: RecepiesBanner){
         <div className="bg-[url('/baner-bg.svg')] w-[420px] h-[100%] pb-8">
         <h3 className="text-pop text-sm text-secondary font-semibold mt-12 ml-[33px]">{baner}</h3>
         <h2 className="text-pop text-xl font-semibold mt-2 ml-[33px]">{header}</h2>
-        <Link href="/blogs" className="text-pop text-base w-fit flex py-3 px-4 mt-[94px] ml-[33px] text-sm font-semibold border-2 rounded-2xl border-secondaryBgDark">
+        <Link href="/blogs" className="text-pop text-base w-fit flex py-3 px-4 mt-[94px] ml-[33px] text-sm font-semibold border-2 rounded-2xl border-secondaryBgDark hover:bg-gray-200">
             Read recepies
             <Image
             className="ml-2"

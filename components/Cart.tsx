@@ -16,7 +16,7 @@ export default function Cart() {
   return (
     <Box  className="flex max-lg:mt-1 max-lg:mr-6 max-sm:mr-2 max-sm:ml-2">
       <button 
-      className="flex relative w-6 h-6"
+      className="flex relative w-8 h-8 hover:bg-primaryHover rounded-full p-1"
       onClick={() => setOpen(true)}
       >
         <Image
@@ -58,7 +58,7 @@ export default function Cart() {
           </div>
           <div className="flex items-center pt-4 ">
             <button onClick={() => setOpen(false)} className='py-3 px-4 mb-2 mr-8 text-pop text-base text-primary hover:bg-slate-200 rounded-2xl max-sm:mr-6 max-sm:text-sm'>Continue shopping</button>
-            <Link href="/success" onClick={
+            <Link href="/success#success" onClick={
               () => {
                 setOpen(false)
                 reset()

@@ -22,7 +22,7 @@ import ToglleFilter from "@/components/ToglleFilter";
             <ToglleFilter products={products} category={category}/> 
           </div>
          <div className="max-xl:hidden">
-            <Filter products={products} category={category}/>
+            <Filter category={category}/>
          </div>
             <div className="flex flex-wrap justify-start max-w-[869px] max-xl:justify-center">
             {products.map((p: Product) => (

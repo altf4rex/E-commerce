@@ -1,7 +1,5 @@
 "use client"
-import {subcategoryCountProp} from "@/types"
-import {getProduct} from '@/utils'
-import {categories} from "@/constants"
+
 import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormGroup from '@mui/material/FormGroup';
@@ -9,6 +7,9 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import { Rating } from "@mui/material";
 
 const FilterRating = () => {
+
+  const ratings = ["5", "4", "3", "2", "1"];
+  
   const searchParams = useSearchParams();
   const router = useRouter();
 
@@ -24,8 +25,6 @@ const FilterRating = () => {
 
     router.push(`?${params.toString()}`, { scroll: false });
   };
-
-  const ratings = ["5", "4", "3", "2", "1"];
 
   return (
     <div className="mb-12 max-xl:mb-6">
