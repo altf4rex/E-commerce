@@ -1,6 +1,6 @@
 import PocketBase from 'pocketbase';
 
-interface CommonProduct {
+interface Product {
   id: string;
   collectionId: string;
   collectionName: string;
@@ -46,7 +46,7 @@ export async function getProduct({
   rating?: string;
   priceRange?: string;
   product?: string;
-}): Promise<CommonProduct[]> {
+}): Promise<Product[]> {
   try {
     const filters = [];
     
@@ -81,7 +81,7 @@ export async function getProduct({
 
     const filter = filters.join(" && ");
 
-    return await pb.collection('products').getFullList<CommonProduct>({
+    return await pb.collection('products').getFullList<Product>({
       filter,
     });
   } catch (error) {
@@ -90,9 +90,9 @@ export async function getProduct({
   }
 }
 
-export async function getProductsByCategory(category: string): Promise<CommonProduct[]> {
+export async function getProductsByCategory(category: string): Promise<Product[]> {
   try {
-    const result = await pb.collection('products').getList<CommonProduct>(1, 3, {
+    const result = await pb.collection('products').getList<Product>(1, 3, {
       filter: `categorySlug="${category}"`,
     });
 

@@ -19,11 +19,11 @@ const FilterPrice = ({category}: {category?: string }) => {
   };
   
   const priceParam = searchParams.get("price");
-  const effectiveCategory = (category || "all") as keyof typeof minmaxPrice;
+  const effectiveCategory = (((category && category !== 'undefined') ? category : "all") || "all") as keyof typeof minmaxPrice;
   const initialPriceRange = {
     min: priceParam ? parseFloat(priceParam.split("-")[0]) : minmaxPrice[effectiveCategory][0],
     max: priceParam ? parseFloat(priceParam.split("-")[1]) : minmaxPrice[effectiveCategory][1],
-  };
+  }; 
 
   if((initialPriceRange.max - initialPriceRange.min) < 10) {
     step = 0.1;
@@ -69,7 +69,6 @@ const FilterPrice = ({category}: {category?: string }) => {
         onChange={handleChange1}
         valueLabelDisplay="auto"
         disableSwap
-        className='bg-secondary'
         onMouseLeave = {() => handlePriceChange(value1[0], value1[1])}
       />
       <div className="flex justify-between mt-7 text-sans text-lg">

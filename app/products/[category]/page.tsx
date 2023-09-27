@@ -9,11 +9,12 @@ import ToglleFilter from "@/components/ToglleFilter";
     params,
     searchParams,
   }: {
-    params: { slug: string }
+    params: { category: string }
     searchParams: { [key: string]: string | string[] | undefined }
   }){
     let category;
-    params.slug !== 'search' ? category = params.slug : category = 'undefined';
+    params.category !== 'search' ? category = params.category : category = 'undefined';
+
     const {subcategory} = searchParams;
     const {rating} = searchParams;
     const {price} = searchParams;

@@ -16,11 +16,11 @@ const FilterCategory = ({category}: {category?: string}) => {
     }
     router.push(`?${params.toString()}`, { scroll: false });
   };
-
+ 
   return (
     <div className="mb-12 max-xl:mb-6">
       <h3 className="text-pop mb-4 text-lg text-primary">Categories</h3>
-      {subcategory[(category || "all") as keyof typeof subcategory].map((key) => (
+      {subcategory[((category && category !== 'undefined') ? category : "all") as keyof typeof subcategory].map((key) => (
           <p
           className={`mb-1 p-2 w-max cursor-pointer text-sans text-lg text-primary rounded-lg hover:bg-gray-200 ${currentCategory === key.toLocaleLowerCase() ? 'bg-gray-200' : ''}`}
           onClick={() => handleCategoryClick(key)}

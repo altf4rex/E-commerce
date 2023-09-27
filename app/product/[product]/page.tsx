@@ -6,13 +6,14 @@ import ButtonAddCart from "@/components/ButtonAddCart";
 import Rating from '@mui/material/Rating';
 import Image from "next/image";
 import toUrl from "@/utils/toUrl";
+import { log } from "console";
 
- export default async function Page({params}:{params: { slug: string }}){
+ export default async function Page({params}:{params: { product: string }}){
 
-    const {slug} = params;
-    const prod = (await getProduct({product:`${slug}`})) || { items: []};
+    const {product} = params;
+    const prod = (await getProduct({product:`${product}`})) || { items: []};
     const p = prod[0];
-
+    
     return (
       <>
         <Navigation />

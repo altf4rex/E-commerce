@@ -203,7 +203,7 @@ export const minmaxPrice = {
   "bakery": [1.99, 3.99],
   "fruit-vegetables": [0.99, 4.99],
   "meat-fish": [6.99, 12.99],
-  "drinks": [1.99, 1.99],
+  "drinks": [1.99, 8.99],
   "kitchen": [2.49, 49.99],
   "baby": [2.99, 19.99],
   "pharmacy": [4.49, 5.49],
