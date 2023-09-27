@@ -1,28 +1,14 @@
 import LeftMenu from "@/components/LeftMenu";
 import {LeftMenuCategory, BestSellingProducts, BestFromFarmers, BannerRecepies} from "@/constants";
 import RecepiesBanner from "@/components/RecepiesBanner";
-import {part} from "@/utils"
+import {getProductsByCategory} from "@/utils"
 import ProductCard from "@/components/ProductCard";
 import BlogSection from "@/components/BlogSection";
-import { Product } from "@/types";
-
-type ProductObj = 
-  {
-    page: number;
-    perPage: number;
-    totalItems: number;
-    totalPages: number;
-    items: Product[]
-}
 
 export default async function Home() {
 
-  const bestSelling:ProductObj = await part("bakery")
-  console.log(bestSelling)
-  const bestSellingProducts = bestSelling.items; 
-
-  const bestFarmers:ProductObj = await part("fruit-vegetables");
-  const bestFarmersProducts = bestFarmers.items; 
+  const bestSelling = await getProductsByCategory("bakery")
+  const bestFarmers = await getProductsByCategory("fruit-vegetables");
 
 
   return (
@@ -39,7 +25,7 @@ export default async function Home() {
          <section className="flex my-16 max-xl:flex-col max-xl:my-4">
           <LeftMenu {...BestSellingProducts}/>
             <div className="scr flex overflow-auto">
-              {bestSellingProducts.map((p) => (
+              {bestSelling.map((p) => (
                 <ProductCard p={p}/>
               ))} 
             </div>
@@ -49,7 +35,7 @@ export default async function Home() {
         <section className="flex my-16 max-xl:flex-col max-xl:my-4">
           <LeftMenu {...BestFromFarmers}/>
             <div className="scr flex overflow-auto">
-              {bestFarmersProducts.map((p) => (
+              {bestFarmers.map((p) => (
                 <ProductCard p={p}/>
               ))} 
             </div>

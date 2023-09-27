@@ -6,12 +6,11 @@ import Tabs from '@mui/joy/Tabs';
 import TabList from '@mui/joy/TabList';
 import Tab, { tabClasses } from '@mui/joy/Tab';
 import TabPanel from '@mui/joy/TabPanel';
-import Typography from '@mui/joy/Typography';
 import ProductDescription from './ProductDescription';
 import Reviews from './Reviews';
 import Question from './Question';
 
-export default function TabsPageExample({origins, recipe, rating}: {origins: string, recipe: string, rating:string}) {
+export default function TabsPageExample({origins, recipe, rating}: {origins?: string, recipe?: string, rating?:string}) {
   const [index, setIndex] = React.useState(0);
   return (
     <Box
@@ -76,11 +75,7 @@ export default function TabsPageExample({origins, recipe, rating}: {origins: str
             </Chip>
             </Tab>
         </TabList>
-        <Box
-          sx={(theme) => ({
-            background: '#FFF'
-          })}
-        >
+        <Box>
           <TabPanel value={0}>
             <ProductDescription origins={origins} recipe={recipe}/>
           </TabPanel>

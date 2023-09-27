@@ -1,15 +1,14 @@
 'use client'
-import {Product, ProductArray} from "@/types";
+import {ProductArray} from "@/types";
 import Filter from "./Filter";
 import * as React from 'react';
 import Box from '@mui/joy/Box';
 import IconButton from '@mui/joy/IconButton';
 import Drawer from '@mui/joy/Drawer';
-import Typography from '@mui/joy/Typography';
 import ModalClose from '@mui/joy/ModalClose';
 import TuneIcon from '@mui/icons-material/Tune';
 
-const ToglleFilter = ({products, category}: {products?: ProductArray, category?: string}) => {
+const ToglleFilter = ({category}: {category?: string}) => {
     const [open, setOpen] = React.useState(false);
   return (
     <React.Fragment>
@@ -30,8 +29,7 @@ const ToglleFilter = ({products, category}: {products?: ProductArray, category?:
       >
         <ModalClose id="close-icon" className="closeSvg" sx={{ position: 'initial'}} />
       </Box>
-      <Filter products={products} category={category}/>
-      
+      <Filter category={category}/>
       <button onClick={
               () => {setOpen(false)}} 
               className='py-5 px-4  text-pop text-xl text-white bg-secondary border-secondaryBgDark hover:bg-secondaryHover max-sm:text-lg'>

@@ -1,25 +1,32 @@
-import {part, getProduct} from "@/utils"
-import {Product, ProductArray} from "@/types";
+import {getProduct} from "@/utils"
+import {Product} from "@/types";
 import ProductCard from "@/components/ProductCard";
 import Navigation from "@/components/Navigation";
 import Filter from "@/components/Filter";
 import ToglleFilter from "@/components/ToglleFilter";
-  export default async function Page(props){
+
+  export default async function Page({
+    params,
+    searchParams,
+  }: {
+    params: { slug: string }
+    searchParams: { [key: string]: string | string[] | undefined }
+  }){
     let category;
-    props.params.category !== 'search' ? {category} = props.params : category = 'undefined';
-    const {subcategory} = props.searchParams;
-    const {rating} = props.searchParams;
-    const {price} = props.searchParams;
-    const {search} = props.searchParams;
+    params.slug !== 'search' ? category = params.slug : category = 'undefined';
+    const {subcategory} = searchParams;
+    const {rating} = searchParams;
+    const {price} = searchParams;
+    const {search} = searchParams;
     
-    const products: ProductArray = (await getProduct({search:`${search}`, category:`${category}`,subcategory:`${subcategory}`, rating:`${rating}`, priceRange:`${price}`})) || { items: []};
+    const products = (await getProduct({search:`${search}`, category:`${category}`,subcategory:`${subcategory}`, rating:`${rating}`, priceRange:`${price}`})) || { items: []};
     
     return (
       <>
         <Navigation />
          <main className="flex justify-start max-xl:flex-col">
          <div className="hidden max-xl:flex max-xl:justify-center ">
-            <ToglleFilter products={products} category={category}/> 
+            <ToglleFilter category={category}/> 
           </div>
          <div className="max-xl:hidden">
             <Filter category={category}/>

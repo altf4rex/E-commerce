@@ -1,6 +1,6 @@
 import Image from "next/image"
 import {culinaryJourney} from "@/constants"
-import { title } from "process"
+
 const page = () => {
   return (
     <div>

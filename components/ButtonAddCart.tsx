@@ -6,26 +6,17 @@ import {CartContext} from "@/components/cart-provider.tsx"
 import { Product } from '@/types';
 import CountProduct from "@/components/CountProduct";
 const ButtonAddCart = ({product}: {product: Product}) => {
-
-const { addToCart, productCounts }: {addToCart: (product: Product) => void; productCounts: { [productId: number]: number };}  = useContext(CartContext);
-
-// cartCount: number;
-//   totalCartPrice: number;
-//   cart: Product[];
   
-//   removeFromCart: (productId: string) => void;
-//   reduceCount: (productId: string) => void;
-//   reset: () => void;
-  
+  const cartContext = useContext(CartContext);
 
   return (
     <div> 
-        {!!productCounts[product.id] ? <CountProduct product={product}/> :
+        {!!cartContext?.productCounts[product.id] ? <CountProduct product={product}/> :
             <Button 
                 color="success"
                 className='hover:bg-secondaryHover max-sm:p-0 max-sm:pr-2 '
                 startDecorator={<Add />} 
-                onClick={() => addToCart(product)}
+                onClick={() => cartContext?.addToCart(product)}
             >
             Add to cart
             </Button>

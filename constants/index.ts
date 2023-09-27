@@ -33,8 +33,8 @@ export const  LeftMenuCategory = {
   header: 'All categories',
   array: [
     "Bakery",
-    "Fruit and vegetables",
-    "Meat and fish",
+    "Fruit and Vegetables",
+    "Meat and Fish",
     "Drinks",
     "Kitchen",
   ],
@@ -196,6 +196,7 @@ export const subcategory = {
   "kitchen": ["Cutlery", "Cookware", "Appliances", "Dining"],
   "baby": ["Diapers", "Hygiene"],
   "pharmacy": ["Pain Relief", "Cold & Flu"],
+  "all": ["Bread", "Pastry", "Cookies", "Fruit", "Vegetable", "Grains", "Vegetables", "Fish", "Meat", "Tea", "Juice", "Coffee", "Water", "Cutlery", "Cookware", "Appliances", "Dining", "Diapers", "Hygiene", "Pain Relief", "Cold & Flu"]
 }
 
 export const minmaxPrice = {
@@ -205,5 +206,6 @@ export const minmaxPrice = {
   "drinks": [1.99, 1.99],
   "kitchen": [2.49, 49.99],
   "baby": [2.99, 19.99],
-  "pharmacy": [4.49, 5.49]
+  "pharmacy": [4.49, 5.49],
+  "all": [0.99, 49.99],
 }

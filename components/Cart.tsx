@@ -10,7 +10,8 @@ import CartProduct from "./CartProduct";
 import Link from "next/link";
  
 export default function Cart() {
-  const { cart, cartCount, totalCartPrice, reset} = useContext(CartContext);
+  const cartContext = useContext(CartContext);
+;
   const [open, setOpen] = React.useState(false);
 
   return (
@@ -25,7 +26,7 @@ export default function Cart() {
             width={24}
             height={24}
         />
-        <div className="basket-circle">{cartCount ? cartCount : 0}</div>
+        <div className="basket-circle">{cartContext?.cartCount ? cartContext?.cartCount : 0}</div>
       </button>
       <Drawer open={open} anchor='right' onClose={() => setOpen(false)}>
         <div className='m-4 flex justify-between'>
@@ -41,19 +42,19 @@ export default function Cart() {
         </div>
         <div>
         {
-          cart?.map((p: Product) => (
+          cartContext?.cart?.map((p: Product) => (
             <CartProduct key={p.id} p={p}/>
           ))
         }
         </div>
         {
-        totalCartPrice ?
+        cartContext?.totalCartPrice ?
         (
         <div className="relative bottom-0 p-4 divide-y-2">
           <div className="pb-2">
             <h4 className='mb-2 text-pop text-sm text-primary'>Subtotal</h4>
             <span className='text-pop text-2xl text-primary'>
-              {totalCartPrice}USD
+              {cartContext?.totalCartPrice}USD
             </span>
           </div>
           <div className="flex items-center pt-4 ">
@@ -61,7 +62,7 @@ export default function Cart() {
             <Link href="/success#success" onClick={
               () => {
                 setOpen(false)
-                reset()
+                cartContext?.reset()
               }} 
               className='py-3 px-4 text-pop text-base text-white bg-secondary border border-secondaryBgDark rounded-2xl hover:bg-secondaryHover max-sm:text-sm'>Go to Checkout</Link>
           </div>

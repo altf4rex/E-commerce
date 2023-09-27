@@ -7,7 +7,6 @@ import * as React from "react";
 import Box from "@mui/joy/Box";
 import IconButton from "@mui/joy/IconButton";
 import Drawer from "@mui/joy/Drawer";
-import Input from "@mui/joy/Input";
 import List from "@mui/joy/List";
 import ListItemButton from "@mui/joy/ListItemButton";
 import Typography from "@mui/joy/Typography";

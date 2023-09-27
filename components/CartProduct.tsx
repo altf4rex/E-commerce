@@ -6,18 +6,20 @@ import {useContext} from "react"
 import CountProduct from "./CountProduct";
 import toUrl from "@/utils/toUrl";
 const CartProduct = ({p}: {p: Product}) => {
-const { removeFromCart } = useContext(CartContext);
+    
+const cartContext = useContext(CartContext);
+
   return (
     <div className="flex h-[200px] mx-4 mb-6 mt-1 p-2 pl-6 bg-primaryBg border border-slate-200 rounded-xl max-sm:mx-2 max-sm:mb-3 max-sm:pl-3">
         <div className="mr-5 max-sm:mr-3">
             <Image
           className="mb-4 mt-2 rounded-2xl bg-primaryBg"
-          src={toUrl(p.img, p.id)}
+          src={toUrl(p.id, p.img)}
           alt='product'
           width={150}
           height={100}
           />
-            <div className="flex w-max px-2 mt-4 rounded-xl cursor-pointer hover:bg-slate-200" onClick={() => removeFromCart(`${p.id}`)}>
+            <div className="flex w-max px-2 mt-4 rounded-xl cursor-pointer hover:bg-slate-200" onClick={() => cartContext?.removeFromCart(`${p.id}`)}>
                 <Image 
                     src="/close.svg"
                     width={12}

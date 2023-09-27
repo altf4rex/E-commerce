@@ -9,8 +9,9 @@ import {CartContext} from "@/components/cart-provider.tsx"
 import {useContext} from "react"
 import { Product } from '@/types';
 const CountProduct = ({product}: {product: Product} ) => {
-  const { cart, addToCart, removeFromCart, productCounts, reduceCount} = useContext(CartContext);
-  // const [count, setCount] = React.useState(0);
+
+  const cartContext = useContext(CartContext);
+
   return (
     <Box
         sx={{
@@ -24,17 +25,17 @@ const CountProduct = ({product}: {product: Product} ) => {
         <IconButton
           size="sm"
           variant="outlined"
-          onClick={() => reduceCount(product.id)}
+          onClick={() => cartContext?.reduceCount(product.id)}
         >
           <Remove />
         </IconButton>
         <Typography fontWeight="md" textColor="text.secondary">
-          {productCounts[product.id]}
+          {cartContext?.productCounts[product.id]}
         </Typography>
         <IconButton
           size="sm"
           variant="outlined"
-          onClick={() => addToCart(product)}
+          onClick={() => cartContext?.addToCart(product)}
         >
          <Add />
         </IconButton>

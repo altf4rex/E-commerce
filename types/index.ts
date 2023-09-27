@@ -12,11 +12,6 @@ export interface RecepiesBanner{
     link: string;
 }
 
-// export interface RequestProps{
-//     category: string;
-//     limit: number;
-// }
-
 export interface ProductCardProps{
     name?: string;
     category?: string;
@@ -56,7 +51,7 @@ export interface Product {
     img?: string;
   }
 
-  export type ProductArray = {
+export type ProductArray = {
     items: Product[];
   };
 

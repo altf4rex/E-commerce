@@ -1,5 +1,3 @@
-
-import {ProductArray, Product} from "@/types"
 import FilterCategory from "./FilterCategory"
 import FilterRating from "./FilterRating"
 import FilterPrice from "./FilterPrice"

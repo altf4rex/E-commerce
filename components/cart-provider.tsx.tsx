@@ -10,7 +10,7 @@ interface CartContextType {
   removeFromCart: (productId: string) => void;
   reduceCount: (productId: string) => void;
   reset: () => void;
-  productCounts: { [productId: number]: number };
+  productCounts: { [productId: string]: number };
 }
 
 export const CartContext = createContext<CartContextType | undefined>(undefined);

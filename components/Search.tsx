@@ -1,4 +1,5 @@
 "use client"
+
 import { useRouter, useSearchParams } from 'next/navigation';
 import { FormEvent } from 'react'
 import SearchIcon from '@mui/icons-material/Search';

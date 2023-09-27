@@ -1,11 +1,9 @@
 "use client"
-import { Product } from '@/types';
 import Slider from '@mui/material/Slider';
 import { useRouter, useSearchParams } from 'next/navigation'
 import * as React from 'react';
-import  {useState} from 'react';
 import { minmaxPrice } from '@/constants';
-
+ 
 const FilterPrice = ({category}: {category?: string }) => {
   let minDistance = 1;
   let step = 1;
@@ -20,10 +18,12 @@ const FilterPrice = ({category}: {category?: string }) => {
     router.push(`?${params.toString()}`, { scroll: false });
   };
   
- const initialPriceRange = {
-  min: parseFloat(searchParams.get("price")?.split("-")[0]) || minmaxPrice[category][0],
-  max: parseFloat(searchParams.get("price")?.split("-")[1]) || minmaxPrice[category][1],
-};
+  const priceParam = searchParams.get("price");
+  const effectiveCategory = (category || "all") as keyof typeof minmaxPrice;
+  const initialPriceRange = {
+    min: priceParam ? parseFloat(priceParam.split("-")[0]) : minmaxPrice[effectiveCategory][0],
+    max: priceParam ? parseFloat(priceParam.split("-")[1]) : minmaxPrice[effectiveCategory][1],
+  };
 
   if((initialPriceRange.max - initialPriceRange.min) < 10) {
     step = 0.1;
@@ -31,8 +31,6 @@ const FilterPrice = ({category}: {category?: string }) => {
   }
 
   const [value1, setValue1] = React.useState<number[]>([initialPriceRange.min, initialPriceRange.max]);
-  const [minPrice, setMinPrice] = useState<number>(initialPriceRange.min);
-  const [maxPrice, setMaxPrice] = useState<number>(initialPriceRange.max);
 
   const handleChange1 = (
     event: Event,
@@ -52,13 +50,11 @@ const FilterPrice = ({category}: {category?: string }) => {
 
   const handleMinInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const minValue = parseFloat(event.target.value) || 0;
-    setMinPrice(minValue);
     handlePriceChange(minValue, value1[1]);
   };
 
   const handleMaxInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const maxValue = parseFloat(event.target.value) || 0;
-    setMaxPrice(maxValue);
     handlePriceChange(value1[0], maxValue);
   };
 
@@ -67,13 +63,13 @@ const FilterPrice = ({category}: {category?: string }) => {
       <h3 className="text-pop text-xl text-primary mb-7">Price</h3>
       <Slider
       step={step}
-        min={minmaxPrice[category][0]}
-        max={minmaxPrice[category][1]}
+        min={minmaxPrice[effectiveCategory][0]}
+        max={minmaxPrice[effectiveCategory][1]}
         value={value1}
         onChange={handleChange1}
         valueLabelDisplay="auto"
         disableSwap
-        color="success"
+        className='bg-secondary'
         onMouseLeave = {() => handlePriceChange(value1[0], value1[1])}
       />
       <div className="flex justify-between mt-7 text-sans text-lg">

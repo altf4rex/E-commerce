@@ -1,5 +1,6 @@
 import Rating from '@mui/material/Rating';
-const Reviews = ({rating}: {rating:string}) => {
+
+const Reviews = ({rating}: {rating?: string}) => {
   return (
     <div className='flex flex-col p-4 my-4 bg-primaryBg rounded-2xl'>
         <div className='flex flex-wrap justify-between items-center'>

@@ -24,7 +24,7 @@ export default function RootLayout({
       <CartProvider>
         <Header /> 
         <div className="hidden max-xl:flex">
-          <Link href={`/products/`} className="text-pop flex mt-6 px-4 py-3 rounded-3xl text-lg font-bold mb-2 bg-white max-xl:hover:bg-primaryBg ">
+          <Link href={`/products/search?search=`} className="text-pop flex mt-6 px-4 py-3 rounded-3xl text-lg font-bold mb-2 bg-white max-xl:hover:bg-primaryBg ">
           All products
           <Image 
             className="ml-2"

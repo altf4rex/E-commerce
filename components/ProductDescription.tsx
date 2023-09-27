@@ -1,5 +1,5 @@
 
-const ProductDescription = ({origins, recipe}: {origins: string, recipe: string}) => {
+const ProductDescription = ({origins, recipe}: {origins?: string, recipe?: string}) => {
   return (
     <div className='flex flex-col p-4 my-4 bg-primaryBg rounded-2xl max-w-[502px]'>
         <div className="mb-8">

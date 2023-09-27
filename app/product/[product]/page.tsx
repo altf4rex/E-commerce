@@ -7,10 +7,10 @@ import Rating from '@mui/material/Rating';
 import Image from "next/image";
 import toUrl from "@/utils/toUrl";
 
- export default async function Page(props){
+ export default async function Page({params}:{params: { slug: string }}){
 
-    const {product} = props.params;
-    const prod: Product[] = (await getProduct({product:`${product}`})) || { items: []};
+    const {slug} = params;
+    const prod = (await getProduct({product:`${slug}`})) || { items: []};
     const p = prod[0];
 
     return (
@@ -19,7 +19,7 @@ import toUrl from "@/utils/toUrl";
         <main className="flex flex-wrap">
           <Image
           className="w-[500px] h-[100%] rounded-2xl object-contain"
-          src={toUrl(p.img, p.id)}
+          src={toUrl(p.id, p?.img)}
           alt='product'
           width={569}
           height={350}

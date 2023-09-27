@@ -1,5 +1,4 @@
 import {RecepiesBanner}  from "@/types";
-import Image from "next/image";
 import Link from "next/link";
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
