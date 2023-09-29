@@ -1,12 +1,10 @@
 import Navigation from "@/components/Navigation";
 import { getProduct } from "@/utils";
-import {Product} from "@/types"
 import Options from "@/components/Options";
 import ButtonAddCart from "@/components/ButtonAddCart";
 import Rating from '@mui/material/Rating';
 import Image from "next/image";
 import toUrl from "@/utils/toUrl";
-import { log } from "console";
 
  export default async function Page({params}:{params: { product: string }}){
 
@@ -16,7 +14,6 @@ import { log } from "console";
     
     return (
       <>
-        <Navigation />
         <main className="flex flex-wrap">
           <Image
           className="w-[500px] h-[100%] rounded-2xl object-contain"
@@ -61,7 +58,7 @@ import { log } from "console";
               </div>
             </div>
           </div>
-          <div className="flex justify-between items-center ml-8 mt-8 px-16 py-4 border rounded-2xl border-primaryBg max-xl:px-6 max-xl:ml-2 max-sm:ml-0 max-sm:mt-2 max-sm:px-4 max-sm:px-2">
+          <div className="flex justify-between items-center ml-8 mt-8 px-8 py-4 border rounded-2xl border-primaryBg max-xl:px-6 max-xl:ml-2 max-sm:ml-0 max-sm:mt-2 max-sm:px-4 max-sm:px-2">
             <div>
               <p className="text-pop text-2xl text-secondary max-xl:text-xl">{p.price}USD</p>
               {p.discountPrice !== p.price && <p className="text-pop text-base line-through text-primaryLight max-xl:text-sm">{p.discountPrice}USD</p>}

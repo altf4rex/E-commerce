@@ -34,7 +34,7 @@ export default function RootLayout({
             height={3}
           /> 
           </Link>
-          </div>
+        </div>
           <CategoryMenu /> 
         {children}
       </CartProvider>

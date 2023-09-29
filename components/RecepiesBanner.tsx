@@ -11,7 +11,7 @@ export default function RecepiesBanner({baner, header}: RecepiesBanner){
         <Link href="/blogs" className="text-pop text-base w-fit flex items-center py-3 px-4 mt-[94px] ml-[33px] text-sm font-semibold border-2 rounded-2xl border-secondaryBgDark hover:bg-secondary hover:text-white hover:border-secondaryBgLight">
             Read recepies
             <ChevronRightIcon
-            className="ml-2 text-lg mt-[0.5px]"
+            className="ml-2 text-lg"
             /> 
             </Link>
           </div>

@@ -24,7 +24,6 @@ import ToglleFilter from "@/components/ToglleFilter";
     
     return (
       <>
-        <Navigation />
          <main className="flex justify-start max-xl:flex-col">
          <div className="hidden max-xl:flex max-xl:justify-center ">
             <ToglleFilter category={category}/> 
@@ -32,7 +31,7 @@ import ToglleFilter from "@/components/ToglleFilter";
          <div className="max-xl:hidden">
             <Filter category={category}/>
          </div>
-            <div className="flex flex-wrap justify-start max-w-[869px] max-xl:justify-center">
+            <div className="flex flex-wrap justify-start max-w-[869px] max-xl:justify-center content-start">
             {products.map((p: Product) => (
               <ProductCard p={p} />
             ))}
