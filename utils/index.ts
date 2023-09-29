@@ -30,7 +30,7 @@ interface Product {
   img?: string;
 }
 
-const pb = new PocketBase(process.env.POCKETBASE_API_URL);
+const pb = new PocketBase(process.env.API_HOST);
 
 export async function getProduct({
   search,
