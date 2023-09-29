@@ -33,7 +33,7 @@ import ToglleFilter from "@/components/ToglleFilter";
          </div>
             <div className="flex flex-wrap justify-start max-w-[869px] max-xl:justify-center content-start">
             {products.map((p: Product) => (
-              <ProductCard p={p} />
+              <ProductCard key={p.id} p={p} />
             ))}
           </div>
         </main>

@@ -19,8 +19,8 @@ const page = () => {
     <div>
         <h1 className="text-pop text-4xl text-primary mt-7  max-sm:block">Blogs</h1>
         <div className="flex justify-around flex-wrap my-12 max-xl:my-0">
-            <BlogLgCard title={blog[0].title} img={blog[0].img}/>
-            <BlogLgCard title={blog[1].title} img={blog[1].img}/>
+            <BlogLgCard key={blog[0].title} title={blog[0].title} img={blog[0].img}/>
+            <BlogLgCard key={blog[1].title} title={blog[1].title} img={blog[1].img}/>
         </div>
         <h2 className="hidden text-pop text-2xl text-primary mt-7 max-sm:block">More Blogs:</h2>
         <div className="flex justify-between my-12 ">
@@ -44,7 +44,7 @@ const page = () => {
             </div> 
             <div className="flex flex-wrap justify-start max-xl:justify-around">
             {
-                blogPosts.map((post) => (<BlogCard title={post.title} img={post.img}/>))
+                blogPosts.map((post) => (<BlogCard key={post.title} title={post.title} img={post.img}/>))
             }
             </div>
         </div>
