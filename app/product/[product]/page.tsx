@@ -4,6 +4,7 @@ import Options from "@/components/Options";
 import ButtonAddCart from "@/components/ButtonAddCart";
 import Rating from '@mui/material/Rating';
 import Image from "next/image";
+import toUrl from "@/utils/toUrl";
 
  export default async function Page({params}:{params: { product: string }}){
 
@@ -16,7 +17,7 @@ import Image from "next/image";
         <main className="flex flex-wrap">
           <Image
           className="w-[500px] h-[100%] rounded-2xl object-contain"
-          src={`https://ecom-branch.pockethost.io/api/files/products/${p.id}/${p.img}`}
+          src={toUrl(p.id, p?.img)}
           alt='product'
           width={569}
           height={350}

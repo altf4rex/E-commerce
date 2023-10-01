@@ -2,7 +2,7 @@
 const nextConfig = {}
 
 module.exports = {
-    images: {
-      domains: ['127.0.0.1'],
-    },
-  }
+  images: {
+    domains: ['ecom-branch.pockethost.io'], 
+  },
+}
