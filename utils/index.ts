@@ -1,7 +1,7 @@
 
 import PocketBase from 'pocketbase';
 
-const pb = new PocketBase('https://ecom-branch.pockethost.io');
+const pb = new PocketBase("https://ecom-branch.pockethost.io");
 
 interface Product {
   id: string;

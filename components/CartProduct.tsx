@@ -4,9 +4,10 @@ import Rating from '@mui/material/Rating';
 import {CartContext} from "@/components/cart-provider.tsx"
 import {useContext} from "react"
 import CountProduct from "./CountProduct";
-import toUrl from "@/utils/toUrl";
+
+
 const CartProduct = ({p}: {p: Product}) => {
-    
+const imageUrl = `https://ecom-branch.pockethost.io/api/files/products/${p.id}/${p.img}`;
 const cartContext = useContext(CartContext);
 
   return (
@@ -14,7 +15,7 @@ const cartContext = useContext(CartContext);
         <div className="mr-5 max-sm:mr-3">
             <Image
           className="mb-4 mt-2 rounded-2xl bg-primaryBg"
-          src={toUrl(p.id, p.img)}
+          src={imageUrl}
           alt='product'
           width={150}
           height={100}

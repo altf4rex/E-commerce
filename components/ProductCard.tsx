@@ -3,16 +3,18 @@ import {Product} from "@/types"
 import Link from "next/link"
 import ButtonAddCart from "./ButtonAddCart"
 import Rating from '@mui/material/Rating';
-import toUrl from "@/utils/toUrl"
+
 
 const ProductCard = ({p}: {p: Product}) => {
-  console.log(toUrl(p.id, p?.img))
+
+  const imageUrl = `https://ecom-branch.pockethost.io/api/files/products/${p.id}/${p.img}`;
+
   return (
     <div className="p-4 mb-4 ml-4 rounded-2xl border border-solid text-gray-400 h-min">
         <Link href={`/product/${p.slug}`} className="hover:brightness-75">
           <Image
           className="w-[238px] h-[170px] mb-4 bg-primaryBg rounded-xl object-fill hover:scale-105 duration-300"
-          src={toUrl(p.id, p?.img)}
+          src={imageUrl}
           alt='product'
           width={237}
           height={170}

@@ -4,20 +4,20 @@ import Options from "@/components/Options";
 import ButtonAddCart from "@/components/ButtonAddCart";
 import Rating from '@mui/material/Rating';
 import Image from "next/image";
-import toUrl from "@/utils/toUrl";
+
 
  export default async function Page({params}:{params: { product: string }}){
-
+   
     const {product} = params;
     const prod = (await getProduct({product:`${product}`})) || { items: []};
     const p = prod[0];
-    
+    const imageUrl = `https://ecom-branch.pockethost.io/api/files/products/${p.id}/${p.img}`;
     return (
       <>
         <main className="flex flex-wrap">
           <Image
           className="w-[500px] h-[100%] rounded-2xl object-contain"
-          src={toUrl(p.id, p?.img)}
+          src={imageUrl}
           alt='product'
           width={569}
           height={350}
