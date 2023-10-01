@@ -10,6 +10,9 @@ export default async function Home() {
   const bestSelling = await getProductsByCategory("bakery")
   const bestFarmers = await getProductsByCategory("fruit-vegetables");
 
+  console.log(bestSelling)
+  console.log(bestFarmers)
+
   return (
     <main>
         <section className="flex my-16 max-xl:flex-col max-xl:my-8 max-sm:my-2">
