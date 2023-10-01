@@ -1,4 +1,7 @@
+
 import PocketBase from 'pocketbase';
+
+const pb = new PocketBase(process.env.API_URL);
 
 interface Product {
   id: string;
@@ -29,8 +32,6 @@ interface Product {
   categorySlug: string;
   img?: string;
 }
-
-const pb = new PocketBase(process.env.POCKETBASE_API_URL);
 
 export async function getProduct({
   search,
