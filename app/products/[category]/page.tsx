@@ -1,7 +1,6 @@
 import {getProduct} from "@/utils"
 import {Product} from "@/types";
 import ProductCard from "@/components/ProductCard";
-import Navigation from "@/components/Navigation";
 import Filter from "@/components/Filter";
 import ToglleFilter from "@/components/ToglleFilter";
 

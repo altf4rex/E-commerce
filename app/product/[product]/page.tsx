@@ -1,4 +1,3 @@
-import Navigation from "@/components/Navigation";
 import { getProduct } from "@/utils";
 import Options from "@/components/Options";
 import ButtonAddCart from "@/components/ButtonAddCart";

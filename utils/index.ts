@@ -91,15 +91,15 @@ export async function getProduct({
   }
 }
 
-export async function getProductsByCategory(category: string): Promise<Product[]> {
-  try {
-    const result = await pb.collection('products').getList<Product>(1, 3, {
-      filter: `categorySlug="${category}"`,
-    });
+// export async function getProductsByCategory(category: string): Promise<Product[]> {
+//   try {
+//     const result = await pb.collection('products').getList<Product>(1, 3, {
+//       filter: `categorySlug="${category}"`,
+//     });
 
-    return result.items;
-  } catch (error) {
-    console.error(`Произошла ошибка:`, error);
-    return [];
-  }
-}
+//     return result.items;
+//   } catch (error) {
+//     console.error(`Произошла ошибка:`, error);
+//     return [];
+//   }
+// }

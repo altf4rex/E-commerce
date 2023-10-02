@@ -8,8 +8,7 @@ import Rating from '@mui/material/Rating';
 const ProductCard = ({p}: {p: Product}) => {
 
   const imageUrl = `https://ecom-branch.pockethost.io/api/files/products/${p.id}/${p.img}`;
-  console.log(p.id)
-  console.log(p.img)
+
   return (
     <div className="p-4 mb-4 ml-4 rounded-2xl border border-solid text-gray-400 h-min">
         <Link href={`/product/${p.slug}`} className="hover:brightness-75">
