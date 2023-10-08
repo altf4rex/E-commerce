@@ -35,7 +35,6 @@ const FilterRating = () => {
             key={ratingValue}
             control={
               <Checkbox
-              
                 color="success"
                 checked={ratingValue === searchParams.get("rating")}
                 onChange={() => handleRatingCheckboxChange(ratingValue)}

@@ -62,7 +62,8 @@ const FilterPrice = ({category}: {category?: string }) => {
     <div className="mb-12 max-xl:mb-6">
       <h3 className="text-pop text-xl text-primary mb-7">Price</h3>
       <Slider
-      step={step}
+        sx={{ color: "#6A983C"}}
+        step={step}
         min={minmaxPrice[effectiveCategory][0]}
         max={minmaxPrice[effectiveCategory][1]}
         value={value1}

@@ -27,17 +27,26 @@ export default function HeaderSearc() {
           <Image src="/user.svg" alt="user" width={24} height={24} />
         </Link>
       <Cart />
-      <div className="hidden max-lg:block">
-        <React.Fragment>
+      <div className="hidden max-lg:block w-full">
+        <React.Fragment >
           <IconButton
-          className="mt-3"
+            sx={{mt: 1.5}}
             variant="outlined"
             color="neutral"
             onClick={() => setOpen(true)}
           >
             <Menu />
           </IconButton>
-          <Drawer open={open} onClose={() => setOpen(false)}>
+          <Drawer
+          anchor="right"
+          open={open} 
+          onClose={() => setOpen(false)}>
+            <Box sx={{
+            margin: 0,
+            minHeight: "100%",
+            display: "grid",
+            gridTemplateRows: "auto 1fr auto",
+          }}>
             <Box
               sx={{
                 display: "flex",
@@ -82,6 +91,7 @@ export default function HeaderSearc() {
                 <p className="text-primary">info@ecommerce.com</p>
               </div>
             </List>
+            </Box>
           </Drawer>
         </React.Fragment>
         </div>

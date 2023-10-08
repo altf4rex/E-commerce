@@ -13,8 +13,18 @@ const ButtonAddCart = ({product}: {product: Product}) => {
     <div> 
         {!!cartContext?.productCounts[product.id] ? <CountProduct product={product}/> :
             <Button 
-                color="success"
-                className='hover:bg-secondaryHover max-sm:p-0 max-sm:pr-2 '
+                sx={{ 
+                  padding: "8px 8px 8px 4px", 
+                  borderRadius: 12, 
+                  fontFamily: "Poppins",
+                  fontSize: 16,
+                  fontStyle: "normal",
+                  fontWeight: 700,
+                  lineHeight: "normal",
+                  backgroundColor: "#6A983C",
+                  border: "1px solid #46760A",
+                 }}
+                className='hover:bg-secondaryHover max-sm:p-0 max-sm:pr-2 bg-secondary '
                 startDecorator={<Add />} 
                 onClick={() => cartContext?.addToCart(product)}
             >

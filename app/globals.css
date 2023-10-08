@@ -61,7 +61,6 @@ line-height: normal;
   scrollbar-color: #d2d1d1 #ffffff;
 }
 
-/* Chrome, Edge, and Safari */
 .scr::-webkit-scrollbar {
   width: 2px;
 }
@@ -76,17 +75,9 @@ line-height: normal;
   border: 3px solid #ffffff;
 }
 
-
-.css-187mznn-MuiSlider-root {
-  color: #6A983C;
-}
-
-
-
 .select
 .MuiFormLabel-root
 {
- 
   color: var(--c-1-a, #151515);
   font-family: Poppins;
   font-size: 15px;
@@ -98,7 +89,6 @@ line-height: normal;
 .select
 .MuiInputBase-root
  {
-
   width: 200px;
 }
 
@@ -113,9 +103,7 @@ line-height: normal;
 .MuiInputBase-input
  {
   padding-bottom: 4px;
- 
 }
-
 
 .search{
   width: 270px;
@@ -157,19 +145,6 @@ background:  #E5704B;
 box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
 }
 
-
-.css-17v15vd-JoyButton-root
-{
-  padding: 8px 8px 8px 4px; 
-  border-radius: 12px;
-  font-family: Poppins;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  background-color: #6A983C;
-  border: 1px solid #46760A;
-}
 
 .lds-ellipsis-container {
   display: flex;
@@ -238,30 +213,8 @@ box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
   }
 }
 
-
 .blur{
   filter: brightness(65%)
-}
-
-.MuiDrawer-content{
-  width: 600px;
-  margin: 0;
-  min-height: 100%;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-}
-
-
-@media screen and (max-width: 768px) {
-  .MuiDrawer-content{
-    width: 450px;
-  }
-}
-
-@media screen and (max-width: 569px) {
-  .MuiDrawer-content{
-    width: 100%;
-  }
 }
 
 @media screen and (max-width: 640px) {
@@ -320,4 +273,24 @@ box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
 .MuiSvgIcon-root{
   width: 30px;
   height: 30px;
+}
+
+.css-7ab3kr-JoyDrawer-content{
+  width: 500px;
+}
+
+@media screen and (max-width: 640px) {
+  .css-7ab3kr-JoyDrawer-content{
+    width: 100%;
+  }
+}
+
+.css-z7pljc-JoyDrawer-content{
+  width: 500px;
+}
+
+@media screen and (max-width: 640px) {
+  .css-z7pljc-JoyDrawer-content{
+    width: 100%;
+  }
 }

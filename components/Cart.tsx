@@ -29,6 +29,12 @@ export default function Cart() {
         <div className="basket-circle">{cartContext?.cartCount ? cartContext?.cartCount : 0}</div>
       </button>
       <Drawer open={open} anchor='right' onClose={() => setOpen(false)}>
+      <Box sx={{
+            margin: 0,
+            minHeight: "100%",
+            display: "grid",
+            gridTemplateRows: "auto 1fr auto",
+          }}>
         <div className='m-4 flex justify-between'>
           <h1 className='text-pop text-2xl text-primary max-sm:text-xl'>Shopping cart</h1>
           <Image
@@ -69,6 +75,7 @@ export default function Cart() {
         </div>
         ) : ""
         }
+        </Box>
       </Drawer>
     </Box>
   );

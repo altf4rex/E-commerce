@@ -12,11 +12,27 @@ const ToglleFilter = ({category}: {category?: string}) => {
     const [open, setOpen] = React.useState(false);
   return (
     <React.Fragment>
-    <IconButton variant="outlined" className="rounded-2xl py-2 px-4 m-2 ml-4 mb-4 max-xl:px-10 " color="neutral" onClick={() => setOpen(true)}>
+    <IconButton variant="outlined"
+    sx={
+      {
+        py:1, 
+        px: 2, 
+        margin: 1,
+        ml: 2, 
+        mb: 2, 
+      }
+    } 
+    color="neutral" onClick={() => setOpen(true)}>
       <TuneIcon />
       <p className="text-pop text-base ml-2">filter</p>
     </IconButton>
     <Drawer open={open} onClose={() => setOpen(false)}>
+    <Box sx={{
+            margin: 0,
+            minHeight: "100%",
+            display: "grid",
+            gridTemplateRows: "auto 1fr auto",
+          }}>
       <Box
         sx={{
           display: 'flex',
@@ -35,7 +51,7 @@ const ToglleFilter = ({category}: {category?: string}) => {
               className='py-5 px-4  text-pop text-xl text-white bg-secondary border-secondaryBgDark hover:bg-secondaryHover max-sm:text-lg'>
                 Apply
             </button>
-
+      </Box>
     </Drawer>
   </React.Fragment>
   )

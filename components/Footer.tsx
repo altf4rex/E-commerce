@@ -16,7 +16,7 @@ const Footer = () => {
             </div>
         )) }
         </div>
-        <p className="text-sans mt-12 text-sm text-primary">Copyright © 2020 petrbilek.com</p>
+        <p className="text-sans mt-12 text-sm text-primary">Copyright © 2020</p>
     </footer>
   )
 }
