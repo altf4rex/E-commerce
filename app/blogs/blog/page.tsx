@@ -4,7 +4,7 @@ import {culinaryJourney} from "@/constants"
 const page = () => {
   return (
     <div>
-      <div  className='relative '>
+      <div  className='relative'>
       <Image 
         className='relative z-0 my-12 max-lg:my-6 max-lg:h-[400px] max-lg:object-cover max-sm:my-3 max-sm:h-[300px] rounded-2xl blur'
         src="/big-p-blog.jpg"

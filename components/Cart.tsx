@@ -11,7 +11,6 @@ import Link from "next/link";
  
 export default function Cart() {
   const cartContext = useContext(CartContext);
-;
   const [open, setOpen] = React.useState(false);
 
   return (

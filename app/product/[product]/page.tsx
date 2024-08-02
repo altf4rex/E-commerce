@@ -8,9 +8,10 @@ import Image from "next/image";
  export default async function Page({params}:{params: { product: string }}){
    
     const {product} = params;
-    const prod = (await getProduct({product:`${product}`})) || { items: []};
+    const prod = (await getProduct({product:`${product}`})) || { items: [] };
     const p = prod[0];
     const imageUrl = `https://ecom-branch.pockethost.io/api/files/products/${p.id}/${p.img}`;
+
     return (
       <>
         <main className="flex flex-wrap">
