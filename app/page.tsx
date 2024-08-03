@@ -1,15 +1,11 @@
 import LeftMenu from "@/components/LeftMenu";
 import {LeftMenuCategory, BestSellingProducts, BestFromFarmers, BannerRecepies} from "@/constants";
 import RecepiesBanner from "@/components/RecepiesBanner";
-import {getProduct} from "@/utils"
-import ProductCard from "@/components/ProductCard";
 import BlogSection from "@/components/BlogSection";
+import MainPageBestFarmers from "@/components/MainPageBestFarmers";
+import MainPageBestSelling from "@/components/MainPageBestSelling";
 
-export default async function Home() {
-
-  const bestSelling = (await getProduct({category: "bakery"})) || { items: []};
-  const bestFarmers = (await getProduct({category: "fruit-vegetables"})) || { items: []};
-  
+export default function Home() {
 
   return (
     <main>
@@ -24,21 +20,13 @@ export default async function Home() {
         </section>
          <section className="flex my-16 max-xl:flex-col max-xl:my-4">
           <LeftMenu {...BestSellingProducts}/>
-            <div className="scr flex overflow-auto">
-              {bestSelling.slice(0, 3).map((p) => (
-                <ProductCard key={p.id} p={p}/>
-              ))} 
-            </div>
+           <MainPageBestSelling/>
           <div>
           </div>
         </section>
         <section className="flex my-16 max-xl:flex-col max-xl:my-4">
           <LeftMenu {...BestFromFarmers}/>
-            <div className="scr flex overflow-auto">
-              {bestFarmers.slice(-3).map((p) => (
-                <ProductCard key={p.id} p={p}/>
-              ))} 
-            </div>
+          <MainPageBestFarmers />
         </section>
         <BlogSection />
     </main> 
